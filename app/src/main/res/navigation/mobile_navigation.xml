@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.rupalibankemployeeinfo.ui.home.HomeFragment"
+        android:label="@string/menu_search"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.rupalibankemployeeinfo.ui.gallery.GalleryFragment"
+        android:label="@string/menu_browse"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.rupalibankemployeeinfo.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_prl"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_tools"
+        android:name="com.example.rupalibankemployeeinfo.ui.tools.ToolsFragment"
+        android:label="@string/menu_notices"
+        tools:layout="@layout/fragment_tools" />
+    <fragment
+        android:id="@+id/nav_details"
+        android:name="com.example.rupalibankemployeeinfo.ui.employedetails.EmployeeDetailsFragment"
+        android:label="@string/menu_notices"
+        tools:layout="@layout/fragment_tools" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.example.rupalibankemployeeinfo.ui.share.ShareFragment"
+        android:label="@string/menu_pass"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="com.example.rupalibankemployeeinfo.ui.send.SendFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_send" />
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.rupalibankemployeeinfo.ui.send.SendFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_send" />
+</navigation>

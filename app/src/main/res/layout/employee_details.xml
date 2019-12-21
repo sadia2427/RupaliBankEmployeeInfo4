@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/deal_details_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:background="@color/colorWhite"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/account_circle" />
+
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_below="@+id/imageView2"
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                     <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/reg_no"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:drawableRight=""
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:background="@color/colorView"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            android:text="34234343434343434344"
+                            android:textSize="12sp"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/browser_actions_text_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/colorView"
+                        android:layout_margin="2dp"
+                        android:layout_height="1dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/file_no"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:drawableRight=""
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:background="@color/colorView"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            android:text="Officer  123232"
+                            android:textSize="12sp"
+                            android:layout_gravity="center"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/browser_actions_text_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/colorView"
+                        android:layout_margin="2dp"
+                        android:layout_height="1dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/employee_name"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:drawableRight=""
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:background="@color/colorView"
+                            android:layout_height="match_parent"
+                            />
+
+                        <TextView
+                            android:text="MS. Khadiza Begum"
+                            android:textSize="12sp"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/browser_actions_text_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/colorView"
+                        android:layout_margin="2dp"
+                        android:layout_height="1dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/employee_name_bangla"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:drawableRight=""
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:background="@color/colorView"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            android:text="34234343434343434344"
+                            android:textSize="12sp"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/browser_actions_text_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/colorView"
+                        android:layout_margin="2dp"
+                        android:layout_height="1dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/designation"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:drawableRight=""
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:background="@color/colorView"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            android:text="Officer"
+                            android:textSize="12sp"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/browser_actions_text_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/colorView"
+                        android:layout_margin="2dp"
+                        android:layout_height="1dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/place_of_posting"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:drawableRight=""
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:background="@color/colorView"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            android:text="Head Office"
+                            android:textSize="12sp"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/browser_actions_text_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/colorView"
+                        android:layout_margin="2dp"
+                        android:layout_height="1dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/mobile_number"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:drawableRight=""
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:background="@color/colorView"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            android:text="34234343434343434344"
+                            android:textSize="12sp"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/browser_actions_text_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/colorView"
+                        android:layout_margin="2dp"
+                        android:layout_height="1dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/email"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:drawableRight=""
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:background="@color/colorView"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            android:text="34234343434343434344"
+                            android:textSize="12sp"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/browser_actions_text_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/colorView"
+                        android:layout_margin="2dp"
+                        android:layout_height="1dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/office_phone"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:drawableRight=""
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:background="@color/colorView"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            android:text="34234343434343434344"
+                            android:textSize="12sp"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/browser_actions_text_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/colorView"
+                        android:layout_margin="2dp"
+                        android:layout_height="1dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:text="@string/office_email"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:drawableRight=""
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_width="2dp"
+                            android:background="@color/colorView"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            android:text="34234343434343434344"
+                            android:textSize="12sp"
+                            android:paddingStart="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingEnd="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="@color/browser_actions_text_color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/colorView"
+                        android:layout_margin="2dp"
+                        android:layout_height="1dp"
+                        />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:elevation="40dp"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/dealdetails_footer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+
+        <Button
+            android:id="@+id/call_byphone_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttoncallnow"
+            android:gravity="center"
+            android:text="@string/button_call"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/messagenow_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonmessage"
+            android:gravity="center"
+            android:text="@string/button_message"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
