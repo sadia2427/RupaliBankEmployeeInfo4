@@ -16,6 +16,9 @@
     <color name="colorBlack">#000000</color>
     <color name="colorView">#A3111111</color>
     <color name="colorWhite">#ffffff</color>
+
+
+
 <!--    <color name=""></color>-->
 <!--    <color name=""></color>-->
 <!--    <color name=""></color>-->
@@ -24,5 +27,67 @@
 <!--    <color name=""></color>-->
 <!--    <color name=""></color>-->
 <!--    <color name=""></color>-->
+
+
+<!--    <color name="colorPrimary">#3F51B5</color>-->
+<!--    <color name="colorPrimaryDark">#303F9F</color>-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+<!--    <color name="colorAccent">#F16F2F</color>-->
+<!--    <color name="colorWhite">#FFFFFF</color>-->
+    <color name="colorBackground">#EEEEEE</color>
+<!--    <color name="colorBlack">#000000</color>-->
+    <color name="colorTabBackground">#F5F5F5</color>
+    <color name="gray">#afadad</color>
+    <color name="aDheaderColor">#344C54</color>
+    <color name="statusbarcolor">#23363d</color>
+    <color name="light_blue">#4e6aa4</color>
+    <color name="teal_500">#009688</color>
+    <color name="teal_400">#4DB6AC</color>
+    <color name="cartBtn">#FFF29E8C</color>
+
+
+
+    <color name="light_font">#FBFBFB</color>
+    <color name="grey_font">#ff9e9e9e</color>
+    <color name="text_shadow">#7F000000</color>
+    <color name="text_shadow_white">#FFFFFF</color>
+
+
+    <color name="blue">#303F9F</color>
+    `
+    <color name="accent_color">@color/blue</color>
+
+    <color name="statusBarColor">@color/blue</color>
+    <color name="navigationBarColor">@android:color/black</color>
+    <color name="drawerArrowColor">@android:color/white</color>
+    <color name="primary_green">#6a8136</color>
+    <color name="white">#FFFFFF</color>
+    <color name="background_card">#FEFEFE</color>
+
+
+    <color name="gray_dark">#757F7E</color>
+    <color name="list_seperator">#25000000</color>
+    <color name="home_list_separator">#dbc6c6c6</color>
+    <color name="black_semi_transparent">#B2000000</color>
+
+    <color name="text_black">#212121</color>
+    <color name="theme_accent_secondary">#757f7e</color>
+    <color name="header_background">#f1f1f1</color>
+
+
+
+
+
+    <color name="background">#e5e5e5</color>
+    <color name="half_black">#808080</color>
+
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="pink">#e91e63</color>
+    <color name="pink_pressed">#ec407a</color>
+    <color name="blue_semi_transparent">#805677fc</color>
+    <color name="blue_semi_transparent_pressed">#80738ffe</color>
+
+    <color name="expandView">#a3000000</color>
+    <color name="collapseView">#00f1f1f1</color>
 
 </resources>
