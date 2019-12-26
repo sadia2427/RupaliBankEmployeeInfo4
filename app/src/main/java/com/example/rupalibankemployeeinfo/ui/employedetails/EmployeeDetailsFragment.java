@@ -75,9 +75,9 @@ public class EmployeeDetailsFragment extends Fragment {
         messaggeNowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneNumber = "09612007007";
+                String phoneNumber = "01876068187";
                 Intent dial = new Intent();
-                dial.setAction("android.intent.action.M");
+                dial.setAction("android.intent.action.sms");
                 dial.setData(Uri.parse("tel:" + phoneNumber));
                 startActivity(dial);
             }
