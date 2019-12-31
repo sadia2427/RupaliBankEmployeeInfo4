@@ -1,9 +1,16 @@
 package com.example.rupalibankemployeeinfo;
 
 import android.os.Bundle;
+
+import com.example.rupalibankemployeeinfo.ui.search.SearchFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import android.view.View;
+
+import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -14,23 +21,38 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    SearchView searchView;
+    Toolbar toolbar;
 
     private AppBarConfiguration mAppBarConfiguration;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        searchView=findViewById(R.id.search_item);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // set action of fab button
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//                SearchFragment fragment = (SearchFragment) getFragmentManager().findFragmentById(R.id.example_fragment);
+//                fragment.<specific_function_name>();
+                Snackbar.make(view, "hello", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Fragment fragment=SearchFragment.newInstance(13945);
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.nav_host_fragment, fragment);
+//                ft.addToBackStack(null);
+//                fm.popBackStackImmediate();
+                ft.commit();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -38,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
+                R.id.nav_home, R.id.nav_search,R.id.nav_gallery, R.id.nav_slideshow,
                 R.id.nav_tools,R.id.nav_details, R.id.nav_share, R.id.nav_send)
                 .setDrawerLayout(drawer)
                 .build();

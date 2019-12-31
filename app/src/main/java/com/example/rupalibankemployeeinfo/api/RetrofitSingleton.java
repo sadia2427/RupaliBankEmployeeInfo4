@@ -15,7 +15,7 @@ public class RetrofitSingleton {
 
     private static Context sContext;
     private static Retrofit sRetrofit;
-    public static final String BASE_URL = "http://api.ajkerdeal.com";
+    public static final String BASE_URL = "http://localhost/rbl_hrapi";
 
 
     private RetrofitSingleton() {
@@ -43,7 +43,7 @@ public class RetrofitSingleton {
 //                .baseUrl(BASE_URL)
 //                .addConverterFactory(GsonConverterFactory.create())
 //                .build();
-                .baseUrl(BASE_URL)
+                .baseUrl("http://192.168.0.101:8080/rbl_hrapi/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

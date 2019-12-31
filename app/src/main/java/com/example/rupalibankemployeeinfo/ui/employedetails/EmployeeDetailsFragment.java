@@ -7,32 +7,52 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.rupalibankemployeeinfo.R;
+import com.example.rupalibankemployeeinfo.api.RetrofitSingleton;
+import com.example.rupalibankemployeeinfo.api.apiInterface.SearchApiInterface;
+import com.example.rupalibankemployeeinfo.api.model.SearchModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link EmployeeDetailsFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link EmployeeDetailsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class EmployeeDetailsFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
+
+public class EmployeeDetailsFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    // This is test commit from raihan
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    Button callNowbtn;
-    Button messaggeNowBtn;
+
+    // Call Api data
+    private List<SearchModel> mSearchModel;
+    private Retrofit mRetrofit;
+    private SearchApiInterface mSearchApiInterface;
+
+    private Button callNowbtn;
+    private Button messaggeNowBtn;
+
+    private TextView mRegistrationNotv;
+    private TextView mEmployeeNameTv;
+    private TextView mEmployeeNameBanglaTv;
+    private TextView mDesignationTv;
+    private TextView mPlaceOfPosting;
+    private TextView mMobileNoTv;
+    private TextView mEmailNoTv;
+
+    private String mMobileNo;
+
+
 
     private OnFragmentInteractionListener mListener;
-
     public EmployeeDetailsFragment() {
         // Required empty public constructor
     }
@@ -40,56 +60,97 @@ public class EmployeeDetailsFragment extends Fragment {
 
     public static EmployeeDetailsFragment newInstance(String param1, String param2) {
         EmployeeDetailsFragment fragment = new EmployeeDetailsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
         return fragment;
     }
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.employee_details, container, false);
+        mSearchModel=new ArrayList<>();
+        Log.e("msearchView", mSearchModel.toString() );
+        mRetrofit= RetrofitSingleton.getInstance(getContext());
+        mSearchApiInterface=mRetrofit.create(SearchApiInterface.class);
         callNowbtn=view.findViewById(R.id.call_byphone_button);
         messaggeNowBtn=view.findViewById(R.id.messagenow_button);
-        callNowbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String phoneNumber = "01876068187";
-                Intent dial = new Intent();
-                dial.setAction("android.intent.action.DIAL");
-                dial.setData(Uri.parse("tel:" + phoneNumber));
-                startActivity(dial);
-            }
-        });
-        messaggeNowBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String phoneNumber = "01876068187";
-                Intent dial = new Intent();
-                dial.setAction("android.intent.action.sms");
-                dial.setData(Uri.parse("tel:" + phoneNumber));
-                startActivity(dial);
-            }
-        });
+        mRegistrationNotv=view.findViewById(R.id.reg_notv);
+        mEmployeeNameTv=view.findViewById(R.id.employee_nametv);
+        mEmployeeNameBanglaTv=view.findViewById(R.id.employee_name_bantv);
+        mDesignationTv=view.findViewById(R.id.deg_tv);
+        mPlaceOfPosting=view.findViewById(R.id.posting_placetv);
+        mMobileNoTv=view.findViewById(R.id.mobile_notv);
+        mEmailNoTv=view.findViewById(R.id.email_tv);
+        callNowbtn.setOnClickListener(this);
+        messaggeNowBtn.setOnClickListener(this);
+        getEmployeeData();
         return view;
+    }
+
+    private void  getEmployeeData(){
+        Call<List<SearchModel>> getUserData=mSearchApiInterface.getRegistrationID("reg",13945);
+        getUserData.enqueue(new Callback<List<SearchModel>>() {
+            @Override
+            public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
+                Log.e("msearchData", "onResponse: "+response.body().get(0).getEmpName());
+                if (response.body()!=null && response.isSuccessful()){
+                    for (int i=0;i<=mSearchModel.size();i++){
+                        mMobileNo=response.body().get(i).getEmpMobile();
+                        mRegistrationNotv.setText(response.body().get(i).getEmpRegNo());
+                        mEmployeeNameTv.setText(response.body().get(i).getEmpName());
+                        mEmployeeNameBanglaTv.setText(response.body().get(i).getEmpNameBN());
+                        mDesignationTv.setText(response.body().get(i).getDesignationName());
+                        mPlaceOfPosting.setText(response.body().get(i).getOfficeName());
+                        mMobileNoTv.setText(response.body().get(i).getEmpMobile());
+                        mEmailNoTv.setText(response.body().get(i).getEmpEmail());
+                    }
+
+
+                }
+                else {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<SearchModel>> call, Throwable t) {
+                Log.e("onFailure", "onResponse: "+t.toString());
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.call_byphone_button:
+                Intent dial = new Intent();
+                dial.setAction("android.intent.action.DIAL");
+                dial.setData(Uri.parse("tel:" + mMobileNo));
+                startActivity(dial);
+                break;
+
+            case R.id.messagenow_button:
+//                String messageNumber = "01876068187";
+//                Intent dialn = new Intent();
+//                dialn.setAction("android.intent.action.sms");
+//                dialn.setData(Uri.parse("tel:" + messageNumber));
+//                startActivity(dialn);
+
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("sms:"
+                        + mMobileNo)));
         }
     }
 
