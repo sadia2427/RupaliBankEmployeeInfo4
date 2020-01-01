@@ -10,7 +10,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface SearchApiInterface {
-    @GET("/employee/get_EmployeeByRegNo")
-    Call<List<SearchModel>> getRegistrationID(@Query("reg") String reg, @Query("regid") int apiKey);
+    @GET("employee/get_EmployeeByRegNo?")
+    Call<List<SearchModel>> getRegistrationID(@Query("reg") String reg);
 
 }

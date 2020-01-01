@@ -94,7 +94,7 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
     }
 
     private void  getEmployeeData(){
-        Call<List<SearchModel>> getUserData=mSearchApiInterface.getRegistrationID("reg",13945);
+        Call<List<SearchModel>> getUserData=mSearchApiInterface.getRegistrationID("13945");
         getUserData.enqueue(new Callback<List<SearchModel>>() {
             @Override
             public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
@@ -102,7 +102,7 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
                 if (response.body()!=null && response.isSuccessful()){
                     for (int i=0;i<=mSearchModel.size();i++){
                         mMobileNo=response.body().get(i).getEmpMobile();
-                        mRegistrationNotv.setText(response.body().get(i).getEmpRegNo());
+                        mRegistrationNotv.setText(String.valueOf(response.body().get(i).getEmpRegNo()));
                         mEmployeeNameTv.setText(response.body().get(i).getEmpName());
                         mEmployeeNameBanglaTv.setText(response.body().get(i).getEmpNameBN());
                         mDesignationTv.setText(response.body().get(i).getDesignationName());

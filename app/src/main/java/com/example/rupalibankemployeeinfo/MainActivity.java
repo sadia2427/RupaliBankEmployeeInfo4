@@ -24,7 +24,7 @@ import android.view.Menu;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    SearchView searchView;
+//    SearchView searchView;
     Toolbar toolbar;
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        searchView=findViewById(R.id.search_item);
+//        searchView=findViewById(R.id.search_item);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
