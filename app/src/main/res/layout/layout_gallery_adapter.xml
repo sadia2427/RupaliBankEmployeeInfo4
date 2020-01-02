@@ -9,35 +9,44 @@
     android:layout_alignParentRight="true">
 
     <LinearLayout
+        android:id="@+id/search_adapter_ly"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/div_head"
+            android:id="@+id/s_employee_nametv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="asdsdsadsdsds"
+            android:text= " "
             android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="@color/deepOrange"
             />
         <TextView
-            android:id="@+id/bank_name"
+            android:id="@+id/s_employee_deg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12sp"
-            android:text="Rupali Bank Limited"
+            android:text=" "
             android:textColor="@color/browser_actions_text_color"
             />
         <TextView
-
+            android:id="@+id/s_place_of_post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12sp"
-            android:text="jhjkhjhjhjhjhj"
-            android:textStyle="bold"
-            android:textColor="@color/deepOrange"
+            android:text=" "
+            android:textColor="@color/text_shadow"
+            />
+
+        <TextView
+            android:id="@+id/s_employee_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text=" "
+            android:textColor="@color/colorPrimary"
             />
 
     </LinearLayout>

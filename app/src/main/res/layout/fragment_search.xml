@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
-    <ProgressBar
-        android:id="@+id/proogressbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_center="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-         />
+<!--    <ProgressBar-->
+<!--        android:id="@+id/proogressbar"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_center="true"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--         />-->
 
 </FrameLayout>

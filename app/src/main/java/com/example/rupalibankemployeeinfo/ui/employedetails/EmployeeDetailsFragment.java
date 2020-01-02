@@ -49,6 +49,9 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
     private TextView mEmailNoTv;
 
     private String mMobileNo;
+    private String mRegistrationNo;
+    private Bundle bundle;
+    private String TAG="EmployeeDetailsFragment";
 
 
 
@@ -58,7 +61,7 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
     }
 
 
-    public static EmployeeDetailsFragment newInstance(String param1, String param2) {
+    public  EmployeeDetailsFragment newInstance(String RegistrationNo) {
         EmployeeDetailsFragment fragment = new EmployeeDetailsFragment();
 //        Bundle args = new Bundle();
 //        args.putString(ARG_PARAM1, param1);
@@ -89,12 +92,15 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
         mEmailNoTv=view.findViewById(R.id.email_tv);
         callNowbtn.setOnClickListener(this);
         messaggeNowBtn.setOnClickListener(this);
-        getEmployeeData();
+        bundle=this.getArguments();
+        mRegistrationNo=bundle.getString("regNo");
+        getEmployeeData(mRegistrationNo);
         return view;
     }
 
-    private void  getEmployeeData(){
-        Call<List<SearchModel>> getUserData=mSearchApiInterface.getRegistrationID("13945");
+    private void  getEmployeeData(String RegistraionNo){
+        Log.w(TAG, "getEmployeeData: "+RegistraionNo );
+        Call<List<SearchModel>> getUserData=mSearchApiInterface.getRegistrationID(RegistraionNo);
         getUserData.enqueue(new Callback<List<SearchModel>>() {
             @Override
             public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
