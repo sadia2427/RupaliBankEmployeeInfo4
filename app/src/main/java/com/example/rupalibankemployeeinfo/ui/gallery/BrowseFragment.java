@@ -11,11 +11,14 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.rupalibankemployeeinfo.R;
+import com.example.rupalibankemployeeinfo.ui.search.SearchFragment;
 
-public class GalleryFragment extends Fragment  implements View.OnClickListener {
+public class BrowseFragment extends Fragment  implements View.OnClickListener {
 
     private GalleryViewModel galleryViewModel;
     LinearLayout mHeaderLayout;
@@ -53,8 +56,14 @@ public class GalleryFragment extends Fragment  implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.id_headOffice:
-                Toast.makeText(getContext(),"Hello I,M on Click ",Toast.LENGTH_LONG).show();
-                break;
+                Toast.makeText(getActivity(),"headOfficeDivision",Toast.LENGTH_SHORT).show();
+                Fragment fragment = new DivisionListFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.nav_host_fragment, fragment);
+                ft.addToBackStack(null);
+                ft.commit();
+               break;
 
             case R.id.field_offices:
                 Toast.makeText(getContext(),"Field Office Branches",Toast.LENGTH_LONG).show();

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.MenuItemCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -47,7 +48,6 @@ public class SearchFragment extends Fragment  {
     private SearchApiInterface mSearchApiInterface;
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
-    private SearchAdapter mRecyclerViewSearchAdapter;
     private SearchAdapter mSearchAdapter;
     private Bundle mBundle;
     private String TAG="SearchFragment";
@@ -135,7 +135,7 @@ public class SearchFragment extends Fragment  {
 
     private void initAdapter(String data){
         Log.w(TAG, "initAdapter: "+data );
-        Call<List<SearchModel>> getData=mSearchApiInterface.getRegistrationID(data);
+        Call<List<SearchModel>> getData=mSearchApiInterface.getRegistrationID(data,0);
         getData.enqueue(new Callback<List<SearchModel>>() {
             @Override
             public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
@@ -150,7 +150,6 @@ public class SearchFragment extends Fragment  {
                         @Override
                         public void onItemClick(int position, View v) {
                             Log.w(TAG, "onItemClick: onClick 123" );
-                            Toast.makeText(getActivity(),"Details",Toast.LENGTH_SHORT).show();
                             mBundle.putString("regNo", String.valueOf(mSearchModel.get(position).getEmpRegNo()));
 //                            mBundle.putString("categoryId",String.valueOf(mCategoryId));
 //                            mBundle.putString("subCategoryId",String.valueOf(mSubCategoryId));

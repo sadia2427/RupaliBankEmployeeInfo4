@@ -28,7 +28,7 @@
              android:id="@+id/id_headOffice">
 
          <TextView
-             android:text="Head Offices Branches"
+             android:text="Head Office"
              android:id="@+id/div_head"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
@@ -44,12 +44,12 @@
              android:textColor="@color/colorBlack"
              />
          <TextView
-             android:text="Secreta"
+             android:text="Secretariates(CEO and  MD, DMD, GM)/Departments/Staff/Colleges/Subsidiary Company-inland"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:textSize="12sp"
-             android:textStyle="bold"
              android:layout_marginBottom="4dp"
+             android:maxLines="2"
              android:textColor="@color/browser_actions_text_color"
              />
 
@@ -67,7 +67,7 @@
              android:layout_height="wrap_content">
 
          <TextView
-             android:text="Head Offices Branches"
+             android:text="Field Offices/Branches"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:textColor="@color/deepOrange"
@@ -83,11 +83,10 @@
              android:textColor="@color/colorBlack"
              />
          <TextView
-             android:text="Secreta"
+             android:text="Division()/Special Corporate()/Area()/Branch(572)"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:textSize="12sp"
-             android:textStyle="bold"
              android:layout_marginBottom="4dp"
              android:textColor="@color/browser_actions_text_color"
              />
@@ -106,7 +105,7 @@
             android:orientation="vertical">
 
          <TextView
-             android:text="Head Offices Branches"
+             android:text="Overseas Offices/Branches"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:textColor="@color/deepOrange"
@@ -126,7 +125,6 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:textSize="12sp"
-             android:textStyle="bold"
              android:layout_marginBottom="4dp"
              android:textColor="@color/browser_actions_text_color"
              />

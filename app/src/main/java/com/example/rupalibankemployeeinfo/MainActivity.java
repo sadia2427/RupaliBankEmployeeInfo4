@@ -5,8 +5,11 @@ import android.os.Bundle;
 import com.example.rupalibankemployeeinfo.ui.search.SearchFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -44,14 +47,12 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //                SearchFragment fragment = (SearchFragment) getFragmentManager().findFragmentById(R.id.example_fragment);
 //                fragment.<specific_function_name>();
-                Snackbar.make(view, "hello", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                Fragment fragment=SearchFragment.newInstance(13945);
+                Fragment fragment=new SearchFragment();
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.nav_host_fragment, fragment);
-//                ft.addToBackStack(null);
-//                fm.popBackStackImmediate();
+                ft.addToBackStack(null);
+                fm.popBackStackImmediate();
                 ft.commit();
             }
         });
@@ -78,8 +79,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
+        Toast.makeText(getApplicationContext(),"onNavigation Button pressed",Toast.LENGTH_SHORT).show();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+//    @Override
+//    public boolean onOptionsItemSelected( MenuItem item) {
+//        int id=item.getItemId();
+//        if(id==android.R.id.home){
+//            super.onBackPressed();
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }

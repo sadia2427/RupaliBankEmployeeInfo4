@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigator;
+
 import com.example.rupalibankemployeeinfo.R;
 
 public class SlideshowFragment extends Fragment {

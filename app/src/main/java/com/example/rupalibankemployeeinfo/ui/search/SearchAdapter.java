@@ -6,17 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rupalibankemployeeinfo.R;
 import com.example.rupalibankemployeeinfo.api.model.SearchModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
@@ -39,7 +35,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     public SearchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
 //        if (viewType == VIEW_TYPE_ITEM) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_gallery_adapter, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_search_adapter, parent, false);
             return new SearchViewHolder(view);
 //        } else {
 //            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_loading, parent, false);

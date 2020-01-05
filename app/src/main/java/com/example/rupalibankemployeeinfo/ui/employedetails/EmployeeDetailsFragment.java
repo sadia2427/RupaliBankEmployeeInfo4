@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -77,6 +78,9 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.employee_details, container, false);
+
+        DrawerLayout drawer = (DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         mSearchModel=new ArrayList<>();
         Log.e("msearchView", mSearchModel.toString() );
         mRetrofit= RetrofitSingleton.getInstance(getContext());
@@ -93,18 +97,19 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
         callNowbtn.setOnClickListener(this);
         messaggeNowBtn.setOnClickListener(this);
         bundle=this.getArguments();
-        mRegistrationNo=bundle.getString("regNo");
+        if (bundle!=null) {
+            mRegistrationNo = bundle.getString("regNo");
+        }
         getEmployeeData(mRegistrationNo);
+
         return view;
     }
 
     private void  getEmployeeData(String RegistraionNo){
-        Log.w(TAG, "getEmployeeData: "+RegistraionNo );
-        Call<List<SearchModel>> getUserData=mSearchApiInterface.getRegistrationID(RegistraionNo);
+        Call<List<SearchModel>> getUserData=mSearchApiInterface.getRegistrationID(RegistraionNo,0);
         getUserData.enqueue(new Callback<List<SearchModel>>() {
             @Override
             public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
-                Log.e("msearchData", "onResponse: "+response.body().get(0).getEmpName());
                 if (response.body()!=null && response.isSuccessful()){
                     for (int i=0;i<=mSearchModel.size();i++){
                         mMobileNo=response.body().get(i).getEmpMobile();
@@ -126,7 +131,6 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
 
             @Override
             public void onFailure(Call<List<SearchModel>> call, Throwable t) {
-                Log.e("onFailure", "onResponse: "+t.toString());
             }
         });
     }

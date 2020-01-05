@@ -3,23 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA"
-    tools:context=".ui.search.SearchFragment">
+    tools:context=".ui.gallery.DivisionListFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/division_list_rv"
         android:background="@color/white"
-        android:id="@+id/search_recylerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
-<!--    <ProgressBar-->
-<!--        android:id="@+id/proogressbar"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_center="true"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--         />-->
+        android:layout_margin="4dp"/>
 
 </FrameLayout>

@@ -8,6 +8,7 @@
     android:layout_alignParentEnd="true"
     android:layout_alignParentRight="true">
 
+
     <LinearLayout
         android:id="@+id/search_adapter_ly"
         android:layout_width="match_parent"
@@ -50,6 +51,5 @@
             />
 
     </LinearLayout>
-
 
 </androidx.cardview.widget.CardView>
