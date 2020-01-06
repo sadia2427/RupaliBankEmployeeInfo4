@@ -34,8 +34,8 @@
         android:label="@string/menu_notices"
         tools:layout="@layout/fragment_tools" />
     <fragment
-        android:id="@+id/nav_details"
-        android:name="com.example.rupalibankemployeeinfo.ui.employedetails.EmployeeDetailsFragment"
+        android:id="@+id/nav_changepassword"
+        android:name="com.example.rupalibankemployeeinfo.ui.changepassword.ChangePasswordFragment"
         android:label="@string/menu_notices"
         tools:layout="@layout/fragment_tools" />
 

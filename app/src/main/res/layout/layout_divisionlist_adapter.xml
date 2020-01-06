@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_margin="0dp"
     android:background="#FFFFFF"
     android:layout_alignParentTop="true"
     android:layout_alignParentEnd="true"
@@ -19,10 +19,18 @@
             android:id="@+id/division_List"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
             android:textSize="12sp"
             android:text=" "
             android:textColor="@color/deepOrange"
             />
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/colorView"
+            android:layout_height="1dp"
+            />
+
 
     </LinearLayout>
 

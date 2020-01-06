@@ -175,11 +175,11 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
 //        }
 //    }
 //
-//    @Override
-//    public void onDetach() {
-//        super.onDetach();
-//        mListener = null;
-//    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+    }
 
     /**
      * This interface must be implemented by activities that contain this
