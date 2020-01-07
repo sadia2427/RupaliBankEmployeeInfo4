@@ -1,6 +1,5 @@
-package com.example.rupalibankemployeeinfo.ui.gallery;
+package com.example.rupalibankemployeeinfo.ui.Browse;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -14,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.rupalibankemployeeinfo.R;
@@ -21,6 +21,7 @@ import com.example.rupalibankemployeeinfo.api.RetrofitSingleton;
 import com.example.rupalibankemployeeinfo.api.apiInterface.SearchApiInterface;
 import com.example.rupalibankemployeeinfo.api.model.DivisionalList;
 import com.example.rupalibankemployeeinfo.api.model.ZonalList;
+import com.example.rupalibankemployeeinfo.api.model.Zone;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,6 @@ import retrofit2.Retrofit;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,7 +46,7 @@ public class DivisionListFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private RecyclerView mRecyclerView;
     private List<DivisionalList> mDivisionalLists;
-    private List<ZonalList> zonalLists;
+    private List<Zone> zonalLists;
     private Retrofit mRetrofit;
     private SearchApiInterface mSearchApiInterface;;
     private LinearLayoutManager linearLayoutManager;
@@ -54,7 +54,7 @@ public class DivisionListFragment extends Fragment {
     private Bundle bundle;
     private Bundle mBundle;
     private int divisionID=0;
-
+    private ProgressBar mProgressBar;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -95,6 +95,7 @@ public class DivisionListFragment extends Fragment {
         mRetrofit= RetrofitSingleton.getInstance(getActivity());
         mSearchApiInterface=mRetrofit.create(SearchApiInterface.class);
         mRecyclerView=view.findViewById(R.id.division_list_rv);
+        mProgressBar=view.findViewById(R.id.division_progress);
         linearLayoutManager=new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false);
         RecyclerView.LayoutParams params=new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.setMargins(0,0,0,0);
@@ -115,6 +116,8 @@ public class DivisionListFragment extends Fragment {
             @Override
             public void onResponse(Call<List<DivisionalList>> call, Response<List<DivisionalList>> response) {
                 mDivisionalLists.clear();
+                mProgressBar.setVisibility(View.GONE);
+                mRecyclerView.setVisibility(View.VISIBLE);
                 mDivisionalLists.addAll(response.body());
                 Log.w(TAG, "onResponse: "+response.body().get(0).getDivisionalOfficeName() );
                 mBrowseAdapter=new BrowseAdapter(mDivisionalLists,getActivity());
@@ -124,12 +127,13 @@ public class DivisionListFragment extends Fragment {
                     public void onItemClick(int position, View v) {
                         mBundle=new Bundle();
                         mBundle.putString("divisionID",String.valueOf(mDivisionalLists.get(position).getDivisionID()));
+                        mProgressBar.setVisibility(View.VISIBLE);
+                        mRecyclerView.setVisibility(View.GONE);
                        Fragment fragment=new DivisionListFragment();
                        fragment.setArguments(mBundle);
                         FragmentManager fm=getActivity().getSupportFragmentManager();
                         FragmentTransaction ft = fm.beginTransaction();
                         ft.replace(R.id.nav_host_fragment, fragment);
-                        ft.addToBackStack(null);
                         ft.commit();
                     }
                 });
@@ -137,6 +141,7 @@ public class DivisionListFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<DivisionalList>> call, Throwable t) {
+                mProgressBar.setVisibility(View.GONE);
                 Log.w(TAG, "onFailure: " +t.getMessage()+"    "+t.getMessage());
             }
         });
@@ -144,16 +149,15 @@ public class DivisionListFragment extends Fragment {
     }
 
     private void getZonalList(int divisionId){
-
-        Toast.makeText(getActivity(),String.valueOf(divisionId),Toast.LENGTH_SHORT).show();
-        Call<List<ZonalList>> getData=mSearchApiInterface.getZonalListID(divisionId);
-        getData.enqueue(new Callback<List<ZonalList>>() {
+        Call<ZonalList>getData=mSearchApiInterface.getZonalListID(divisionId);
+        getData.enqueue(new Callback<ZonalList>() {
             @Override
-            public void onResponse(Call<List<ZonalList>> call, Response<List<ZonalList>> response) {
-                if(response.body().size()>0 && response.isSuccessful()){
-                    Toast.makeText(getActivity(),"ZonalList 11111",Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<ZonalList> call, Response<ZonalList> response) {
+                if (response.isSuccessful()){
                     zonalLists.clear();
-                    zonalLists.addAll(response.body());
+                    mProgressBar.setVisibility(View.GONE);
+                    mRecyclerView.setVisibility(View.VISIBLE);
+                    zonalLists.addAll(response.body().getZoneList());
                     mBrowseAdapter=new BrowseAdapter(zonalLists,getActivity(),1);
                     mRecyclerView.setAdapter(mBrowseAdapter);
                     mBrowseAdapter.setOnItemClickListener(new BrowseAdapter.BrowseInterFace() {
@@ -166,10 +170,12 @@ public class DivisionListFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<ZonalList>> call, Throwable t) {
+            public void onFailure(Call<ZonalList> call, Throwable t) {
 
             }
         });
+
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event

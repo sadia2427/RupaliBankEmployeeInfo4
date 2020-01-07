@@ -22,6 +22,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rupalibankemployeeinfo.MainActivity;
@@ -51,9 +53,11 @@ public class SearchFragment extends Fragment  {
     private SearchAdapter mSearchAdapter;
     private Bundle mBundle;
     private String TAG="SearchFragment";
+    private ProgressBar mProgressBar;
 
     private static int mRegID=0;
     private boolean loading = false;
+    private TextView mSearchText;
     int pastVisiblesItems, visibleItemCount, totalItemCount;
 
 
@@ -95,8 +99,8 @@ public class SearchFragment extends Fragment  {
             mRecyclerView=view.findViewById(R.id.search_recylerview);
             mSearchModel=new ArrayList<>();
             mBundle=new Bundle();
-
-
+            mProgressBar=view.findViewById(R.id.search_progress);
+            mSearchText=view.findViewById(R.id.search_text);
             mLayoutManager = new LinearLayoutManager(getActivity());
             mRecyclerView.setLayoutManager(mLayoutManager);
 //        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener()
@@ -134,12 +138,15 @@ public class SearchFragment extends Fragment  {
 
 
     private void initAdapter(String data){
+        mProgressBar.setVisibility(View.VISIBLE);
         Log.w(TAG, "initAdapter: "+data );
         Call<List<SearchModel>> getData=mSearchApiInterface.getRegistrationID(data,0);
         getData.enqueue(new Callback<List<SearchModel>>() {
             @Override
             public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
                 if (response.body().size()>0 && response.isSuccessful()){
+                    mProgressBar.setVisibility(View.GONE);
+                    mRecyclerView.setVisibility(View.VISIBLE);
                     mSearchModel.clear();
                     mSearchModel.addAll(response.body());
                     Log.w(TAG, "onResponse: "+response.body().get(0) );
@@ -170,6 +177,8 @@ public class SearchFragment extends Fragment  {
 
             @Override
             public void onFailure(Call<List<SearchModel>> call, Throwable t) {
+            mProgressBar.setVisibility(View.GONE);
+            Toast.makeText(getActivity(),"Sorry no Data Found",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -238,12 +247,13 @@ public class SearchFragment extends Fragment  {
         SearchView searchView = new SearchView(((MainActivity) getContext()).getSupportActionBar().getThemedContext());
         MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
         MenuItemCompat.setActionView(item, searchView);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
 //                populateData();
                 initAdapter(query);
+                mSearchText.setVisibility(View.GONE);
 //                initScrollListener();
 
 
@@ -252,6 +262,7 @@ public class SearchFragment extends Fragment  {
             @Override
             public boolean onQueryTextChange(String newText) {
                 if (newText.length()>2) {
+                    mSearchText.setVisibility(View.GONE);
                     initAdapter(newText);
                 }
                 return false;

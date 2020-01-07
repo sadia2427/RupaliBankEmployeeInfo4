@@ -41,7 +41,6 @@ public class HomeFragment extends Fragment {
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.nav_host_fragment, fragment);
                 ft.addToBackStack(null);
-                fm.popBackStackImmediate();
                 ft.commit();
             }
         });

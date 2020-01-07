@@ -21,6 +21,6 @@ public interface SearchApiInterface {
 
     ////get ZonalList
     @GET("employee/get_ZoneList?")
-    Call<List<ZonalList>> getZonalListID(@Query("division_id") int divisionId);
+    Call<ZonalList>getZonalListID(@Query("division_id") int divisionId);
 
 }

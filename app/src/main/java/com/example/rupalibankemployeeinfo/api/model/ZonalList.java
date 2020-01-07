@@ -2,34 +2,24 @@ package com.example.rupalibankemployeeinfo.api.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class ZonalList {
-    @SerializedName("ZoneID")
-    private int zoneID;
-    @SerializedName("ZonalOfficeName")
-    private String zonalOfficeName;
+    @SerializedName("zoneList")
+    private List<Zone> zoneList ;
 
-
-    public int getZoneID() {
-        return zoneID;
+    public List<Zone> getZoneList() {
+        return zoneList;
     }
 
-    public void setZoneID(int zoneID) {
-        this.zoneID = zoneID;
-    }
-
-    public String getZonalOfficeName() {
-        return zonalOfficeName;
-    }
-
-    public void setZonalOfficeName(String zonalOfficeName) {
-        this.zonalOfficeName = zonalOfficeName;
+    public void setZoneList(List<Zone> zoneList) {
+        this.zoneList = zoneList;
     }
 
     @Override
     public String toString() {
         return "ZonalList{" +
-                "zoneID=" + zoneID +
-                ", zonalOfficeName='" + zonalOfficeName + '\'' +
+                "zoneList=" + zoneList +
                 '}';
     }
 }

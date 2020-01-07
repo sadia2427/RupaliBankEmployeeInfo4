@@ -14,31 +14,32 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:src="@drawable/rupali_bank"/>
-<!--    <LinearLayout-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center_horizontal"-->
-<!--        android:orientation="horizontal">-->
-<!--        <TextView-->
-<!--            android:textColor="@color/colorTeel"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="24dp"-->
-<!--            android:text="WELCOME TO"-->
-<!--            />-->
-<!--    <TextView-->
-<!--        android:layout_marginLeft="8dp"-->
-<!--        android:textColor="@color/colorRed"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textStyle="italic|bold"-->
-<!--        android:textSize="30dp"-->
-<!--        android:text="RBLHRIS"-->
-<!--        />-->
-<!--    </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+        <TextView
+            android:textColor="@color/colorTeel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:text="WELCOME TO"
+            />
+    <TextView
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/colorRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic|bold"
+        android:textSize="30dp"
+        android:text="ICT OPERATION DIVISION"
+        />
+    </LinearLayout>
     </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

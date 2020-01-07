@@ -1,4 +1,4 @@
-package com.example.rupalibankemployeeinfo.ui.tools;
+package com.example.rupalibankemployeeinfo.ui.signin;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.rupalibankemployeeinfo.R;
 
-public class ToolsFragment extends Fragment {
+public class SignInFragment extends Fragment {
 
     private ToolsViewModel toolsViewModel;
 
@@ -20,14 +20,14 @@ public class ToolsFragment extends Fragment {
             ViewGroup container, Bundle savedInstanceState) {
         toolsViewModel =
                 ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
-        final TextView textView = root.findViewById(R.id.text_tools);
-        toolsViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        View root = inflater.inflate(R.layout.fragment_signin, container, false);
+//        final TextView textView = root.findViewById(R.id.text_tools);
+//        toolsViewModel.getText().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
 }

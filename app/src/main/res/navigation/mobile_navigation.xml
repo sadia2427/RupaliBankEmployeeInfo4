@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.rupalibankemployeeinfo.ui.gallery.BrowseFragment"
+        android:name="com.example.rupalibankemployeeinfo.ui.Browse.BrowseFragment"
         android:label="@string/menu_browse"
         tools:layout="@layout/fragment_gallery" />
 
@@ -30,14 +30,14 @@
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.example.rupalibankemployeeinfo.ui.tools.ToolsFragment"
-        android:label="@string/menu_notices"
-        tools:layout="@layout/fragment_tools" />
+        android:name="com.example.rupalibankemployeeinfo.ui.signin.SignInFragment"
+        android:label="@string/menu_signin"
+        tools:layout="@layout/fragment_signin" />
     <fragment
         android:id="@+id/nav_changepassword"
         android:name="com.example.rupalibankemployeeinfo.ui.changepassword.ChangePasswordFragment"
-        android:label="@string/menu_notices"
-        tools:layout="@layout/fragment_tools" />
+        android:label="@string/menu_signin"
+        tools:layout="@layout/fragment_signin" />
 
     <fragment
         android:id="@+id/nav_share"

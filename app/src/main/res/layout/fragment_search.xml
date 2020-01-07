@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +7,15 @@
     tools:context=".ui.search.SearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <ProgressBar
+        android:id="@+id/search_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"/>
     <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
         android:background="@color/white"
         android:id="@+id/search_recylerview"
         android:layout_width="match_parent"
@@ -21,5 +29,15 @@
 <!--        android:layout_gravity="center_horizontal"-->
 <!--        android:layout_marginTop="50dp"-->
 <!--         />-->
+    <TextView
+        android:id="@+id/search_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/browser_actions_text_color"
+        android:maxLines="2"
+        android:padding="10dp"
+        android:gravity="center"
+        android:layout_below="@id/search_progress"
+        android:text="Search Data Using Name/Mobile Number/Registration Number"/>
 
-</FrameLayout>
+</RelativeLayout>

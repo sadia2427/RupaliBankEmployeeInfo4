@@ -1,4 +1,4 @@
-package com.example.rupalibankemployeeinfo.ui.gallery;
+package com.example.rupalibankemployeeinfo.ui.Browse;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,14 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rupalibankemployeeinfo.R;
 import com.example.rupalibankemployeeinfo.api.model.DivisionalList;
-import com.example.rupalibankemployeeinfo.api.model.ZonalList;
-import com.example.rupalibankemployeeinfo.ui.search.SearchAdapter;
+import com.example.rupalibankemployeeinfo.api.model.Zone;
 
 import java.util.List;
 
 public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.GalleryViewHolder>{
     private List<DivisionalList> mDivisionalLists;
-    private List<ZonalList>mZonalLists;
+    private List<Zone>mZonalLists;
     private BrowseInterFace mBrowseInterFace;
     private Context mContext;
     private int id=0;
@@ -30,7 +29,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.GalleryVie
         this.id=id;
 
     }
-    public BrowseAdapter(List<ZonalList> zonalLists, Context context, int id){
+    public BrowseAdapter(List<Zone> zonalLists, Context context, int id){
         mZonalLists=zonalLists;
         mContext=context;
         this.id=id;
