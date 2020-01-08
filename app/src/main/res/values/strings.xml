@@ -31,4 +31,5 @@
     <string name="hello_blank_fragment">Hello Search fragment</string>
     <string name="sign_in_tv">লগইন</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="title_activity_sign_in">SignInActivity</string>
 </resources>

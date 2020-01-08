@@ -3,6 +3,7 @@ package com.example.rupalibankemployeeinfo.api.apiInterface;
 import com.example.rupalibankemployeeinfo.api.model.DivisionalList;
 import com.example.rupalibankemployeeinfo.api.model.SearchModel;
 import com.example.rupalibankemployeeinfo.api.model.ZonalList;
+import com.example.rupalibankemployeeinfo.api.model.ZoneEmployeeBranchList;
 
 import java.util.List;
 
@@ -22,5 +23,9 @@ public interface SearchApiInterface {
     ////get ZonalList
     @GET("employee/get_ZoneList?")
     Call<ZonalList>getZonalListID(@Query("division_id") int divisionId);
+
+    //////Get ZonewiseList
+    @GET("Branch/getBranchList?")
+    Call<List<ZoneEmployeeBranchList>> getZoneEmployeeOrBranch(@Query("zone_id") int zoneId);
 
 }

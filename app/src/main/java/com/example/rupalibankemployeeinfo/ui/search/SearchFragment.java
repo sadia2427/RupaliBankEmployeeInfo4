@@ -144,6 +144,7 @@ public class SearchFragment extends Fragment  {
         getData.enqueue(new Callback<List<SearchModel>>() {
             @Override
             public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
+
                 if (response.body().size()>0 && response.isSuccessful()){
                     mProgressBar.setVisibility(View.GONE);
                     mRecyclerView.setVisibility(View.VISIBLE);
@@ -177,6 +178,7 @@ public class SearchFragment extends Fragment  {
 
             @Override
             public void onFailure(Call<List<SearchModel>> call, Throwable t) {
+                Log.e(TAG, "onFailure: "+t.getMessage() );
             mProgressBar.setVisibility(View.GONE);
             Toast.makeText(getActivity(),"Sorry no Data Found",Toast.LENGTH_SHORT).show();
 

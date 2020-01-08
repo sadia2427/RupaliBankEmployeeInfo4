@@ -22,6 +22,7 @@ import com.example.rupalibankemployeeinfo.api.apiInterface.SearchApiInterface;
 import com.example.rupalibankemployeeinfo.api.model.DivisionalList;
 import com.example.rupalibankemployeeinfo.api.model.ZonalList;
 import com.example.rupalibankemployeeinfo.api.model.Zone;
+import com.example.rupalibankemployeeinfo.api.model.ZoneEmployeeBranchList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,6 +101,7 @@ public class DivisionListFragment extends Fragment {
         RecyclerView.LayoutParams params=new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.setMargins(0,0,0,0);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+        mBundle=new Bundle();
         bundle=this.getArguments();
         if (bundle!=null) {
             divisionID = Integer.parseInt(bundle.getString("divisionID"));
@@ -125,12 +127,11 @@ public class DivisionListFragment extends Fragment {
                 mBrowseAdapter.setOnItemClickListener(new BrowseAdapter.BrowseInterFace() {
                     @Override
                     public void onItemClick(int position, View v) {
-                        mBundle=new Bundle();
                         mBundle.putString("divisionID",String.valueOf(mDivisionalLists.get(position).getDivisionID()));
                         mProgressBar.setVisibility(View.VISIBLE);
                         mRecyclerView.setVisibility(View.GONE);
-                       Fragment fragment=new DivisionListFragment();
-                       fragment.setArguments(mBundle);
+                        Fragment fragment=new DivisionListFragment();
+                        fragment.setArguments(mBundle);
                         FragmentManager fm=getActivity().getSupportFragmentManager();
                         FragmentTransaction ft = fm.beginTransaction();
                         ft.replace(R.id.nav_host_fragment, fragment);
@@ -164,6 +165,14 @@ public class DivisionListFragment extends Fragment {
                         @Override
                         public void onItemClick(int position, View v) {
 
+                            mBundle.putInt("ZoneID",zonalLists.get(position).getZoneID());
+                            Fragment fragment=new ZoneWiseEmployeeBranchListFragment();
+                            fragment.setArguments(mBundle);
+                            FragmentManager fm=getActivity().getSupportFragmentManager();
+                            FragmentTransaction ft = fm.beginTransaction();
+                            ft.replace(R.id.nav_host_fragment, fragment);
+                            ft.addToBackStack(null);
+                            ft.commit();
                         }
                     });
                 }

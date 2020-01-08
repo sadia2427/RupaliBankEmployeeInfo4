@@ -43,6 +43,7 @@ public class RetrofitSingleton {
 //                .baseUrl(BASE_URL)
 //                .addConverterFactory(GsonConverterFactory.create())
 //                .build();
+//                .baseUrl("http://137.59.48.34:8972/rbl_hrapi/")
                 .baseUrl("http://192.168.0.101:8080/rbl_hrapi/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
