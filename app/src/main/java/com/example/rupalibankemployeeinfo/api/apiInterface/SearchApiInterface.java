@@ -1,5 +1,6 @@
 package com.example.rupalibankemployeeinfo.api.apiInterface;
 
+import com.example.rupalibankemployeeinfo.api.model.BranchWiseEmployeeDetails;
 import com.example.rupalibankemployeeinfo.api.model.DivisionalList;
 import com.example.rupalibankemployeeinfo.api.model.SearchModel;
 import com.example.rupalibankemployeeinfo.api.model.ZonalList;
@@ -9,7 +10,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface SearchApiInterface {
@@ -26,6 +26,12 @@ public interface SearchApiInterface {
 
     //////Get ZonewiseList
     @GET("Branch/getBranchList?")
-    Call<List<ZoneEmployeeBranchList>> getZoneEmployeeOrBranch(@Query("zone_id") int zoneId);
+    Call<ZoneEmployeeBranchList> getZoneEmployeeOrBranch(@Query("zone_id") int zoneId);
 
+    //////////Get Branchwise Employee()
+    @GET("Branch/getBranchEmployeeList?")
+    Call<BranchWiseEmployeeDetails>getBranchEmployeeDetails(@Query("office_id") int officeId);
+    //////getLoginData
+    @GET("login")
+    Call<List<SearchModel>> userSignIn(@Query("reg") int reg, @Query("pw") String pw);
 }

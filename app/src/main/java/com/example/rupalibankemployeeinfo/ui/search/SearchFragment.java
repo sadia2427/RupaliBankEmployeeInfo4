@@ -159,6 +159,10 @@ public class SearchFragment extends Fragment  {
                         public void onItemClick(int position, View v) {
                             Log.w(TAG, "onItemClick: onClick 123" );
                             mBundle.putString("regNo", String.valueOf(mSearchModel.get(position).getEmpRegNo()));
+                            mBundle.putString("EmpName",mSearchModel.get(position).getEmpName());
+                            mBundle.putString("EmpNameBan",mSearchModel.get(position).getEmpNameBN());
+                            mBundle.putString("EmpMob",mSearchModel.get(position).getEmpMobile());
+                            mBundle.putString("empEmail",mSearchModel.get(position).getEmpEmail());
 //                            mBundle.putString("categoryId",String.valueOf(mCategoryId));
 //                            mBundle.putString("subCategoryId",String.valueOf(mSubCategoryId));
 //                            mBundle.putString("subSubCategoryId",String.valueOf(mSubsubCatoryIdString));

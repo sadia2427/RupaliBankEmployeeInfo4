@@ -52,6 +52,9 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
 
     private String mMobileNo;
     private String mRegistrationNo;
+    private String mEmployeeName;
+    private String mEmployeeNameBn;
+    private String mEmployeeEmail;
     private Bundle bundle;
     private String TAG="EmployeeDetailsFragment";
 
@@ -103,27 +106,55 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
         bundle=this.getArguments();
         if (bundle!=null) {
             mRegistrationNo = bundle.getString("regNo");
+            mEmployeeName=bundle.getString("EmpName");
+            mEmployeeNameBn=bundle.getString("EmpNameBan");
+            mMobileNo=bundle.getString("EmpMob");
+            mEmployeeEmail=bundle.getString("empEmail");
+            Log.w(TAG, "onCreateView: "+mRegistrationNo+"  "+mEmployeeName+"  "+mEmployeeNameBn+"   "+mEmployeeEmail+"   "+mMobileNo );
+            getEmployeeData(mRegistrationNo);
         }
-        getEmployeeData(mRegistrationNo);
+
 
         return view;
     }
 
-    private void  getEmployeeData(String RegistraionNo){
+    private void  getEmployeeData(final String RegistraionNo){
         Call<List<SearchModel>> getUserData=mSearchApiInterface.getRegistrationID(RegistraionNo,0);
         getUserData.enqueue(new Callback<List<SearchModel>>() {
             @Override
             public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
-                if (response.body()!=null && response.isSuccessful()){
+                if (response.isSuccessful()){
                     for (int i=0;i<=mSearchModel.size();i++){
+                        if (mMobileNo==null){
                         mMobileNo=response.body().get(i).getEmpMobile();
-                        mRegistrationNotv.setText(String.valueOf(response.body().get(i).getEmpRegNo()));
-                        mEmployeeNameTv.setText(response.body().get(i).getEmpName());
-                        mEmployeeNameBanglaTv.setText(response.body().get(i).getEmpNameBN());
-                        mDesignationTv.setText(response.body().get(i).getDesignationName());
-                        mPlaceOfPosting.setText(response.body().get(i).getOfficeName());
-                        mMobileNoTv.setText(response.body().get(i).getEmpMobile());
-                        mEmailNoTv.setText(response.body().get(i).getEmpEmail());
+                        }
+                        mRegistrationNotv.setText(RegistraionNo);
+                        if(mEmployeeName==null){
+                            mEmployeeNameTv.setText(response.body().get(i).getEmpName());
+                        }
+                        else {
+                            mEmployeeNameTv.setText(mEmployeeName);
+                        }
+                       if(mEmployeeNameBn==null) {
+                           mEmployeeNameBanglaTv.setText(response.body().get(i).getEmpNameBN());
+                       }
+                       else {
+                           mEmployeeNameBanglaTv.setText(mEmployeeEmail);
+                       }
+                       if (response.body().get(i).getDesignationName()!=null){
+                           mDesignationTv.setText(response.body().get(i).getDesignationName());
+                       }
+                        if(response.body().get(i).getOfficeName()!=null){
+                            mPlaceOfPosting.setText(response.body().get(i).getOfficeName());
+                        }
+
+                        mMobileNoTv.setText(mMobileNo);
+                        if (mEmployeeEmail==null) {
+                            mEmailNoTv.setText(response.body().get(i).getEmpEmail());
+                        }
+                        else {
+                            mEmailNoTv.setText(mEmployeeEmail);
+                        }
                     }
 
 

@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rupalibankemployeeinfo.R;
+import com.example.rupalibankemployeeinfo.api.model.BranchInfo;
 import com.example.rupalibankemployeeinfo.api.model.DivisionalList;
 import com.example.rupalibankemployeeinfo.api.model.Zone;
 
@@ -19,6 +20,7 @@ import java.util.List;
 public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.GalleryViewHolder>{
     private List<DivisionalList> mDivisionalLists;
     private List<Zone>mZonalLists;
+    private List<BranchInfo>mBranchInfoList;
     private BrowseInterFace mBrowseInterFace;
     private Context mContext;
     private int id=0;
@@ -35,6 +37,11 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.GalleryVie
         this.id=id;
     }
 
+    public BrowseAdapter(List<BranchInfo>branchInfoList,int id){
+        mBranchInfoList=branchInfoList;
+        this.id=id;
+    }
+
 
 
     @NonNull
@@ -48,6 +55,9 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.GalleryVie
     public void onBindViewHolder( GalleryViewHolder holder, int position) {
         if (id==0) {
             holder.mDivisionListTv.setText(mDivisionalLists.get(position).getDivisionalOfficeName());
+        }
+        else if (id==2){
+            holder.mDivisionListTv.setText(mBranchInfoList.get(position).getOfficeName());
         }
         else {
             holder.mDivisionListTv.setText(mZonalLists.get(position).getZonalOfficeName());
