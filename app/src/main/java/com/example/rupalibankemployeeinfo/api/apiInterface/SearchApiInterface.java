@@ -10,6 +10,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface SearchApiInterface {
@@ -32,6 +33,6 @@ public interface SearchApiInterface {
     @GET("Branch/getBranchEmployeeList?")
     Call<BranchWiseEmployeeDetails>getBranchEmployeeDetails(@Query("office_id") int officeId);
     //////getLoginData
-    @GET("login")
-    Call<List<SearchModel>> userSignIn(@Query("reg") int reg, @Query("pw") String pw);
+    @POST("user/login")
+    Call<List<SearchModel>> userSignIn(@Query("reg") String reg, @Query("pw") String pw);
 }

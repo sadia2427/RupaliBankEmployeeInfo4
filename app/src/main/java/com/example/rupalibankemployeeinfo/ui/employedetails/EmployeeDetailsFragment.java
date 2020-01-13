@@ -139,12 +139,12 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
                            mEmployeeNameBanglaTv.setText(response.body().get(i).getEmpNameBN());
                        }
                        else {
-                           mEmployeeNameBanglaTv.setText(mEmployeeEmail);
+                           mEmployeeNameBanglaTv.setText(mEmployeeNameBn);
                        }
-                       if (response.body().get(i).getDesignationName()!=null){
+                       if (!response.body().isEmpty()&& response.body().get(i).getDesignationName()!=null){
                            mDesignationTv.setText(response.body().get(i).getDesignationName());
                        }
-                        if(response.body().get(i).getOfficeName()!=null){
+                        if(!response.body().isEmpty()&& response.body().get(i).getOfficeName()!=null){
                             mPlaceOfPosting.setText(response.body().get(i).getOfficeName());
                         }
 

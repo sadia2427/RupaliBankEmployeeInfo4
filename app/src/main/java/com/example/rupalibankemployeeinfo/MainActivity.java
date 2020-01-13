@@ -1,8 +1,13 @@
 package com.example.rupalibankemployeeinfo;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.rupalibankemployeeinfo.api.model.SignInInfromation;
 import com.example.rupalibankemployeeinfo.ui.search.SearchFragment;
+import com.example.rupalibankemployeeinfo.ui.signin.SessionManager;
+import com.example.rupalibankemployeeinfo.ui.signin.SignInActivity;
+import com.example.rupalibankemployeeinfo.ui.signin.StoreUserInformation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -28,7 +33,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 //    SearchView searchView;
-    Toolbar toolbar;
+    private Toolbar toolbar;
+    private SessionManager session;
+    private StoreUserInformation mStoreUserInformation;
+    private SignInInfromation mSignInInfromation;
 
     private AppBarConfiguration mAppBarConfiguration;
     @Override
@@ -56,13 +64,16 @@ public class MainActivity extends AppCompatActivity {
 //                ft.commit();
 //            }
 //        });
+        session=new SessionManager(getApplicationContext());
+        mStoreUserInformation=new StoreUserInformation(getApplicationContext());
+        mSignInInfromation=new SignInInfromation(getApplicationContext());
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_search,R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools,R.id.nav_changepassword, R.id.nav_share, R.id.nav_send)
+                R.id.nav_tools,R.id.nav_changepassword, R.id.nav_notices, R.id.nav_send)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -79,18 +90,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        Toast.makeText(getApplicationContext(),"onNavigation Button pressed",Toast.LENGTH_SHORT).show();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected( MenuItem item) {
-//        int id=item.getItemId();
-//        if(id==android.R.id.home){
-//            super.onBackPressed();
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onOptionsItemSelected( MenuItem item) {
+        int id=item.getItemId();
+        if(id==R.id.action_settings){
+            session.logoutUser(getApplicationContext());
+            mStoreUserInformation.clearInformation(getApplicationContext());
+            mSignInInfromation.clearSignin(getApplicationContext());
+            startActivityForResult(new Intent(MainActivity.this, SignInActivity.class),100);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

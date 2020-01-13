@@ -32,19 +32,12 @@ public class StoreUserInformation {
         mEditor = mPref.edit();
     }
 
-    public void storeUserInformation(String email, String name, String mobile, String gender, String address, String districtbangla,
-                                     String districtenglish, String knowaboutus, int districId, int areaId){
+    public void storeUserInformation(String email, String name, String mobile,  String address){
 
         mEditor.putString(EMAIL,email);
         mEditor.putString(NAME,name);
         mEditor.putString(MOBILE_NUMBER,mobile);
-        mEditor.putString(GENDER,gender);
         mEditor.putString(ADDRESS,address);
-        mEditor.putString(DISTRICT_BANGLA,districtbangla);
-        mEditor.putString(DISTRICT_ENGLIS,districtenglish);
-        mEditor.putString(KNOW_ABOUT_US,knowaboutus);
-        mEditor.putInt(DISTRICT_ID_PRF,districId);
-        mEditor.putInt(AREA_ID_PRF,areaId);
         mEditor.commit();
     }
 
@@ -63,20 +56,9 @@ public class StoreUserInformation {
         UserInformation.put(EMAIL, mPref.getString(EMAIL, ""));
         UserInformation.put(NAME, mPref.getString(NAME, ""));
         UserInformation.put(MOBILE_NUMBER, mPref.getString(MOBILE_NUMBER, ""));
-        UserInformation.put(GENDER, mPref.getString(GENDER, ""));
         UserInformation.put(ADDRESS, mPref.getString(ADDRESS, ""));
-        UserInformation.put(DISTRICT_BANGLA, mPref.getString(DISTRICT_BANGLA, ""));
-        UserInformation.put(DISTRICT_ENGLIS, mPref.getString(DISTRICT_ENGLIS, ""));
-        UserInformation.put(KNOW_ABOUT_US, mPref.getString(KNOW_ABOUT_US, ""));
 
         return UserInformation;
     }
 
-
-    public HashMap<String, Integer> getLocationsID(){
-        HashMap<String, Integer> district = new HashMap<String, Integer>();
-        district.put(DISTRICT_ID_PRF, mPref.getInt(DISTRICT_ID_PRF,-1));
-        district.put(AREA_ID_PRF, mPref.getInt(AREA_ID_PRF, -1));
-        return district;
-    }
 }

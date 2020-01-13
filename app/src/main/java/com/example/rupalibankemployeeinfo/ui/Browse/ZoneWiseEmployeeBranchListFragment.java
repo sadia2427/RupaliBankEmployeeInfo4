@@ -76,6 +76,7 @@ public class ZoneWiseEmployeeBranchListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_zone_wise_employee_branch_list, container, false);
+        Log.w(TAG, "onCreateView: " );
         mEmployeeRecyler=view.findViewById(R.id.employee_list_rv);
         mBranchRecyler=view.findViewById(R.id.branch_list_rv);
         mProgressBar=view.findViewById(R.id.progress_z);
@@ -134,6 +135,11 @@ public class ZoneWiseEmployeeBranchListFragment extends Fragment {
 //                            mBundle.putString("subSubCategoryId",String.valueOf(mSubsubCatoryIdString));
                                 fragment = new EmployeeDetailsFragment();
                                 fragment.setArguments(mBundle);
+                                FragmentManager fm = getFragmentManager();
+                                FragmentTransaction ft = fm.beginTransaction();
+                                ft.replace(R.id.nav_host_fragment, fragment);
+                                ft.addToBackStack(null);
+                                ft.commit();
 
                             }
                         });
@@ -149,17 +155,18 @@ public class ZoneWiseEmployeeBranchListFragment extends Fragment {
                                 mBundle.putInt("officeId",response.body().getBranchInfoLists().get(position).getOfficeId());
                                 fragment=new EmployeeListFragment();
                                 fragment.setArguments(mBundle);
+                                FragmentManager fm = getFragmentManager();
+                                FragmentTransaction ft = fm.beginTransaction();
+                                ft.replace(R.id.nav_host_fragment, fragment);
+                                ft.addToBackStack(null);
+                                ft.commit();
 
                             }
                         });
 
 
                         //getActivity().getFragmentManager().popBackStack();
-                        FragmentManager fm = getFragmentManager();
-                        FragmentTransaction ft = fm.beginTransaction();
-                        ft.replace(R.id.nav_host_fragment, fragment);
-                        ft.addToBackStack(null);
-                        ft.commit();
+
                     }
 
 
