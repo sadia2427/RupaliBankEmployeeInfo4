@@ -142,7 +142,9 @@ public class SignInActivity extends AppCompatActivity {
         signInSignUpApiInterface.userSignIn(email,password).enqueue(new Callback<List<SearchModel>>() {
             @Override
             public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
-                Log.w(TAG, "onResponse: "+response.body().toString() );
+                Log.w(TAG, "onResponse: regNo: "+response.body().get(0).getEmpRegNo()+" emp_name: "+response.body().get(0).getEmpName()+" ban: "+ response.body().get(0).getEmpNameBN()+ " deg: "+response.body().get(0).getDesignationName()
+                +" office: "+response.body().get(0).getOfficeName()+" con: "+response.body().get(0).getContact()+" mob: "+response.body().get(0).getEmpMobile()+" em: "+response.body().get(0).getEmpEmail());
+
                 if (response.isSuccessful() && response.body() != null) {
 
 //                    sharedPreferences = getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);

@@ -1,6 +1,7 @@
 package com.example.rupalibankemployeeinfo.api.apiInterface;
 
 import com.example.rupalibankemployeeinfo.api.model.BranchWiseEmployeeDetails;
+import com.example.rupalibankemployeeinfo.api.model.ChangePassword;
 import com.example.rupalibankemployeeinfo.api.model.DivisionalList;
 import com.example.rupalibankemployeeinfo.api.model.SearchModel;
 import com.example.rupalibankemployeeinfo.api.model.ZonalList;
@@ -15,7 +16,7 @@ import retrofit2.http.Query;
 
 public interface SearchApiInterface {
     @GET("employee/get_EmployeeByRegNo?")
-    Call<List<SearchModel>> getRegistrationID(@Query("reg") String reg, @Query("count")int count);
+    Call<List<SearchModel>> getRegistrationID(@Query("reg") String reg, @Query("count") int count);
 
     /// Divisional List
     @GET("employee/get_DivisionList")
@@ -23,7 +24,7 @@ public interface SearchApiInterface {
 
     ////get ZonalList
     @GET("employee/get_ZoneList?")
-    Call<ZonalList>getZonalListID(@Query("division_id") int divisionId);
+    Call<ZonalList> getZonalListID(@Query("division_id") int divisionId);
 
     //////Get ZonewiseList
     @GET("Branch/getBranchList?")
@@ -31,8 +32,14 @@ public interface SearchApiInterface {
 
     //////////Get Branchwise Employee()
     @GET("Branch/getBranchEmployeeList?")
-    Call<BranchWiseEmployeeDetails>getBranchEmployeeDetails(@Query("office_id") int officeId);
+    Call<BranchWiseEmployeeDetails> getBranchEmployeeDetails(@Query("office_id") int officeId);
+
     //////getLoginData
-    @POST("user/login")
-    Call<List<SearchModel>> userSignIn(@Query("reg") String reg, @Query("pw") String pw);
+    @POST("api/login/user_login")
+    Call<List<SearchModel>> userSignIn(@Query("regNo")  String reg, @Query("password") String pw);
+
+
+    /////password
+    @POST("api/login/password_change")
+    Call<ChangePassword> getstatus(@Query("regNo") String reg, @Query("old_password") String oldPassword, @Query("conf_password") String con_pass, @Query("password") String passs);
 }

@@ -45,7 +45,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     @Override
     public void onBindViewHolder(SearchViewHolder viewHolder, int position) {
-                Log.w("onBindViewHolder", "onBindViewHolder: " );
+                Log.w("onBindViewHolder", "onBindViewHolder: 123"+ mSearchItemList.get(position).getEmpName());
         viewHolder.mEmployeeNameTv.setText(mSearchItemList.get(position).getEmpName());
         viewHolder.mEmployeeDesignation.setText(mSearchItemList.get(position).getEmpNameBN());
         viewHolder.mEmployeePostingPlace.setText("Reg No : " + String.valueOf(mSearchItemList.get(position).getEmpRegNo()));

@@ -14,8 +14,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.rupalibankemployeeinfo.R;
 import com.example.rupalibankemployeeinfo.api.RetrofitSingleton;
 import com.example.rupalibankemployeeinfo.api.apiInterface.SearchApiInterface;
@@ -49,6 +52,7 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
     private TextView mPlaceOfPosting;
     private TextView mMobileNoTv;
     private TextView mEmailNoTv;
+    private ImageView mEmployeeImage;
 
     private String mMobileNo;
     private String mRegistrationNo;
@@ -101,6 +105,7 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
         mPlaceOfPosting=view.findViewById(R.id.posting_placetv);
         mMobileNoTv=view.findViewById(R.id.mobile_notv);
         mEmailNoTv=view.findViewById(R.id.email_tv);
+        mEmployeeImage=view.findViewById(R.id.imageView2);
         callNowbtn.setOnClickListener(this);
         messaggeNowBtn.setOnClickListener(this);
         bundle=this.getArguments();
@@ -125,6 +130,17 @@ public class EmployeeDetailsFragment extends Fragment implements View.OnClickLis
             public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
                 if (response.isSuccessful()){
                     for (int i=0;i<=mSearchModel.size();i++){
+                        try {
+                            Glide.with(getActivity())
+                                    .load("http://103.125.136.110/picture/photos/" + RegistraionNo + ".jpg")
+                                
+                                    .into(mEmployeeImage);
+
+                        }
+                        catch (Exception e){
+                            Toast.makeText(getActivity(), "Slow Internet Connection can't load Image",Toast.LENGTH_SHORT).show();
+                        }
+
                         if (mMobileNo==null){
                         mMobileNo=response.body().get(i).getEmpMobile();
                         }
