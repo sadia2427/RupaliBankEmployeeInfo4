@@ -4,23 +4,32 @@ import com.google.gson.annotations.SerializedName;
 
 public class ChangePassword {
     @SerializedName("status")
-    private boolean mStatus;
-    @SerializedName("message")
-    private  String mMessage;
 
-    public boolean ismStatus() {
-        return mStatus;
+    private boolean status;
+    @SerializedName("message")
+    private String message;
+
+    public boolean isStatus() {
+        return status;
     }
 
-    public String getmMessage() {
-        return mMessage;
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
     public String toString() {
         return "ChangePassword{" +
-                "mStatus=" + mStatus +
-                ", mMessage='" + mMessage + '\'' +
+                "status=" + status +
+                ", message='" + message + '\'' +
                 '}';
     }
 }

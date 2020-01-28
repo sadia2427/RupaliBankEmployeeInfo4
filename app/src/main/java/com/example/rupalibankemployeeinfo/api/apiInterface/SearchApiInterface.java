@@ -36,10 +36,9 @@ public interface SearchApiInterface {
 
     //////getLoginData
     @POST("api/login/user_login")
-    Call<List<SearchModel>> userSignIn(@Query("regNo")  String reg, @Query("password") String pw);
+    Call<List<SearchModel>> userSignIn(@Query("regNo") String reg, @Query("password") String pw);
 
-
-    /////password
+    ////Change password
     @POST("api/login/password_change")
-    Call<ChangePassword> getstatus(@Query("regNo") String reg, @Query("old_password") String oldPassword, @Query("conf_password") String con_pass, @Query("password") String passs);
+    Call<ChangePassword> getMessageResponse(@Query("regNo") String regNo, @Query("old_password") String password, @Query("conf_password") String Confirmpass, @Query("password") String pass);
 }

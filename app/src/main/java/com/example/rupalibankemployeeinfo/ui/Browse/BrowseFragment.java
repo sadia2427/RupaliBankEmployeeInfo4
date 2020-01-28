@@ -52,7 +52,7 @@ public class BrowseFragment extends Fragment  implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.id_headOffice:
-                Toast.makeText(getActivity(),"headOfficeDivision",Toast.LENGTH_SHORT).show();
+
                 Fragment fragment = new DivisionListFragment();
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
