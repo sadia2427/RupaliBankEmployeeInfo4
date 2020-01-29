@@ -3,8 +3,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
+
+  <LinearLayout
+      android:background="@color/colorRed"
+      android:layout_gravity="center"
+      android:layout_margin="20dp"
+      android:layout_width="250dp"
+      android:layout_height="wrap_content">
+  <TextView
+      android:id="@+id/text_about_header"
+      android:gravity="center"
+      android:padding="16dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="@color/colorWhite"
+      android:text="© 2020 all rightts reserved Rupali Bank Limited Developed By ICT Operation Division"
+      android:maxLines="3"
+      android:minLines="3"
+    />
+  </LinearLayout>
+
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="wrap_content"
+      android:layout_marginLeft="40dp"
+      android:layout_height="wrap_content">
+    <TextView
+        android:gravity="left"
+        android:paddingLeft="16dp"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold|italic"
+        android:textColor="@color/colorRed"
+        android:text="Rupali Bank Ltd."
+        />
+    <TextView
+        android:gravity="left"
+        android:paddingLeft="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textSize="12sp"
+        android:textColor="@color/text_black"
+        android:text="Head Office, ICT OPERATIONS DIVISION,"
+        />
+    <TextView
+        android:gravity="left"
+        android:paddingLeft="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textSize="12sp"
+        android:textColor="@color/text_black"
+        android:text="9th floor, 34 Dilkusha C/A, Dhaka-1000 |"
+        />
+    <TextView
+        android:id="@+id/text_footer"
+        android:gravity="left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:paddingLeft="16dp"
+        android:textSize="14sp"
+        android:textColor="@color/teal_400"
+        android:text="Designed  Developed  By "
+        />
+    <TextView
+        android:gravity="left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:paddingLeft="16dp"
+        android:textColor="@color/text_black"
+        android:text="SD Team, ICT Operations Division"
+        />
+  </LinearLayout>
+
 
   </LinearLayout>
 

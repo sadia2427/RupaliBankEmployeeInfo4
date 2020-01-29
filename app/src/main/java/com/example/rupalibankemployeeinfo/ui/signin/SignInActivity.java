@@ -5,7 +5,9 @@ import android.os.Bundle;
 
 import com.example.rupalibankemployeeinfo.api.RetrofitSingleton;
 import com.example.rupalibankemployeeinfo.api.apiInterface.SearchApiInterface;
+import com.example.rupalibankemployeeinfo.api.model.ChangePassword;
 import com.example.rupalibankemployeeinfo.api.model.SearchModel;
+import com.example.rupalibankemployeeinfo.api.model.SignIn;
 import com.example.rupalibankemployeeinfo.api.model.SignInInfromation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -48,7 +50,7 @@ public class SignInActivity extends AppCompatActivity {
     private Menu menu;
     private ImageView visibleBtnNot;
     private ImageView visibleBtn;
-    private List<SearchModel> mSearchModelList = new ArrayList<>();
+    private List<SignIn> mSearchModelList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,20 +141,19 @@ public class SignInActivity extends AppCompatActivity {
         Log.w(TAG, "userSignIn: "+email+ " "+password );
         Retrofit retrofit = RetrofitSingleton.getInstance(getBaseContext());
         final SearchApiInterface signInSignUpApiInterface = retrofit.create(SearchApiInterface.class);
-        signInSignUpApiInterface.userSignIn(email,password).enqueue(new Callback<List<SearchModel>>() {
+        signInSignUpApiInterface.userSignIn(email.trim(),password.trim()).enqueue(new Callback<SignIn>() {
             @Override
-            public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
-                Log.w(TAG, "onResponse: regNo: "+response.body().get(0).getEmpRegNo()+" emp_name: "+response.body().get(0).getEmpName()+" ban: "+ response.body().get(0).getEmpNameBN()+ " deg: "+response.body().get(0).getDesignationName()
-                +" office: "+response.body().get(0).getOfficeName()+" con: "+response.body().get(0).getContact()+" mob: "+response.body().get(0).getEmpMobile()+" em: "+response.body().get(0).getEmpEmail());
-
+            public void onResponse(Call<SignIn> call, Response<SignIn> response) {
+                Log.w(TAG, "onResponse: "+response.body().toString()+"   "+response.message() +"  "+email+"  "+password);
+                Toast.makeText(getApplicationContext(),"on Responde",Toast.LENGTH_SHORT).show();
                 if (response.isSuccessful() && response.body() != null) {
-
+                    Toast.makeText(getApplicationContext(), "on If", Toast.LENGTH_SHORT).show();
 //                    sharedPreferences = getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                    mSearchModelList.addAll(response.body());
-
-                    final int userLoginId = mSearchModelList.get(0).getEmpRegNo();
-
+                    mSearchModelList.add(response.body());
                     Toast.makeText(SignInActivity.this, R.string.success_in_signin, Toast.LENGTH_SHORT).show();
+                    final int userLoginId = response.body().getEmployeeInfo().get(0).getEmpRegNo();
+
+
                     //for storing user information
                     String username = "";
                     String useremail = "";
@@ -165,23 +166,23 @@ public class SignInActivity extends AppCompatActivity {
                     String userMobile = "";
                     int userdistrictid = -1;
                     int userareaid = -1;
-                    if (response.body().get(0).getEmpName() != null) {
-                        username = response.body().get(0).getEmpName();
+                    if (response.body().getEmployeeInfo().get(0).getEmpName() != null) {
+                        username = response.body().getEmployeeInfo().get(0).getEmpName();
                     }
-                    if (response.body().get(0).getEmpEmail() != null) {
-                        useremail = response.body().get(0).getEmpEmail();
+                    if (response.body().getEmployeeInfo().get(0).getEmpEmail()!= null) {
+                        useremail = response.body().getEmployeeInfo().get(0).getEmpEmail();
                     }
-                    if (response.body().get(0).getEmpMobile()!= null) {
-                        usermobile = response.body().get(0).getEmpMobile();
+                    if (response.body().getEmployeeInfo().get(0).getEmpMobile()!= null) {
+                        usermobile = response.body().getEmployeeInfo().get(0).getEmpMobile();
                     }
-                    if (response.body().get(0).getOfficeName()!= null) {
-                        useraddress = response.body().get(0).getOfficeName();
+                    if (response.body().getEmployeeInfo().get(0).getOfficeName()!= null) {
+                        useraddress = response.body().getEmployeeInfo().get(0).getOfficeName();
                     }
 
                     storeUserInformation.storeUserInformation(useremail, username, usermobile, useraddress);
                     //end stroing user information
-                    if (response.body().get(0).getEmpMobile()!= null) {
-                        userMobile = response.body().get(0).getEmpMobile();
+                    if (response.body().getEmployeeInfo().get(0).getEmpMobile()!= null) {
+                        userMobile = response.body().getEmployeeInfo().get(0).getEmpMobile();
 
                     }
                     session.createLoginSession(password, email, userMobile, userLoginId);
@@ -195,12 +196,13 @@ public class SignInActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<SearchModel>> call, Throwable t) {
-                Log.w(TAG, "onFailure: "+t.getMessage() );
+            public void onFailure(Call<SignIn> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"on failure",Toast.LENGTH_SHORT).show();
                 hideProgressDialog();
-                Toast.makeText(getApplicationContext(), R.string.sunable_to_connect, Toast.LENGTH_SHORT).show();
+              Toast.makeText(getApplicationContext(), R.string.sunable_to_connect, Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
 

@@ -24,7 +24,7 @@ public class NoticeFragment extends Fragment {
 //                ViewModelProviders.of(this).get(ShareViewModel.class);
         View root = inflater.inflate(R.layout.fragment_share, container, false);
         mWebView=root.findViewById(R.id.web_view);
-        mWebView.loadUrl("https://rupalibank.org/");
+        mWebView.loadUrl("https://www.rupalibank.org/news_events_all.php?type=Notice%20Board");
 //        final TextView textView = root.findViewById(R.id.text_share);
 //        shareViewModel.getText().observe(this, new Observer<String>() {
 //            @Override

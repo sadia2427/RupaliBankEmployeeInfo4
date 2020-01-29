@@ -4,6 +4,7 @@ import com.example.rupalibankemployeeinfo.api.model.BranchWiseEmployeeDetails;
 import com.example.rupalibankemployeeinfo.api.model.ChangePassword;
 import com.example.rupalibankemployeeinfo.api.model.DivisionalList;
 import com.example.rupalibankemployeeinfo.api.model.SearchModel;
+import com.example.rupalibankemployeeinfo.api.model.SignIn;
 import com.example.rupalibankemployeeinfo.api.model.ZonalList;
 import com.example.rupalibankemployeeinfo.api.model.ZoneEmployeeBranchList;
 
@@ -36,7 +37,7 @@ public interface SearchApiInterface {
 
     //////getLoginData
     @POST("api/login/user_login")
-    Call<List<SearchModel>> userSignIn(@Query("regNo") String reg, @Query("password") String pw);
+    Call<SignIn> userSignIn(@Query("regNo") String reg, @Query("password") String pw);
 
     ////Change password
     @POST("api/login/password_change")

@@ -22,9 +22,9 @@
             android:icon="@drawable/account_circle"
             android:title="@string/menu_prl" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_signin" />
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info_24px"
+            android:title="@string/menu_about" />
         <item
             android:id="@+id/nav_changepassword"
             android:icon="@drawable/ic_key"

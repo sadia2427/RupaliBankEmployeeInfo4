@@ -74,22 +74,24 @@ public class ChangePasswordFragment extends Fragment implements View.OnClickList
 
         //// get password from user
 
-        mOldPass=mOldPassEt.getText().toString();
-        mNewPass=mNewPassEt.getText().toString();
-        mConfirmpass=mConfirmPassEt.getText().toString();
+
 
         return  view;
     }
 
-    private void getChangePass(String Reg) {
-
-        Call<ChangePassword> getBranchWiseList = mSearchApiInterface.getMessageResponse("13945", mOldPass, mNewPass, mConfirmpass);
+    private void getChangePass(final String Reg) {
+        mOldPass=mOldPassEt.getText().toString().trim();
+        mNewPass=mNewPassEt.getText().toString().trim();
+        mConfirmpass=mConfirmPassEt.getText().toString().trim();
+        Log.w("change", "onResponse:reg "+Reg+" mOldPass: "+mOldPass+" mNewPass: "+mNewPass+" mCon: "+mConfirmpass);
+        Call<ChangePassword> getBranchWiseList = mSearchApiInterface.getMessageResponse(Reg.trim(), mOldPass, mNewPass, mConfirmpass);
        getBranchWiseList.enqueue(new Callback<ChangePassword>() {
            @Override
            public void onResponse(Call<ChangePassword> call, Response<ChangePassword> response) {
-               Log.w("change", "onResponse: "+response.body().isStatus() );
+
+               Log.w("change", "onResponse: "+response.body().toString() );
                if (response.isSuccessful() && response.body()!=null){
-                   if(response.body().isStatus()){
+                       Toast.makeText(getActivity(),"Change Password Ok", Toast.LENGTH_SHORT).show();
 //                       Bundle bundle=new Bundle();
                        Fragment fragment = new HomeFragment();
                        FragmentManager fm = getFragmentManager();
@@ -97,7 +99,7 @@ public class ChangePasswordFragment extends Fragment implements View.OnClickList
                        ft.replace(R.id.nav_host_fragment, fragment);
                        ft.addToBackStack(null);
                        ft.commit();
-                   }
+
                }
 
            }
@@ -119,6 +121,6 @@ public class ChangePasswordFragment extends Fragment implements View.OnClickList
     @Override
     public void onClick(View v) {
         Toast.makeText(getActivity(),"update",Toast.LENGTH_SHORT).show();
-        getChangePass(mRegNumber);
+        getChangePass("13945");
     }
 }

@@ -4,21 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.rupalibankemployeeinfo.api.model.SignInInfromation;
-import com.example.rupalibankemployeeinfo.ui.search.SearchFragment;
 import com.example.rupalibankemployeeinfo.ui.signin.SessionManager;
 import com.example.rupalibankemployeeinfo.ui.signin.SignInActivity;
 import com.example.rupalibankemployeeinfo.ui.signin.StoreUserInformation;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.view.MenuItem;
-import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SearchView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -29,7 +20,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 //    SearchView searchView;
@@ -73,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_search,R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools,R.id.nav_changepassword, R.id.nav_notices, R.id.nav_send)
+                R.id.nav_about,R.id.nav_changepassword, R.id.nav_notices, R.id.nav_send)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

@@ -11,7 +11,7 @@ public class SessionManager {
     private SharedPreferences.Editor editor;
     private Context _context;
     private int PRIVATE_MODE = 0;
-    private static final String PREF_NAME = "Ajkerdealpref";
+    private static final String PREF_NAME = "RupaliBank";
     private static final String IS_LOGIN = "IsLoggedIn";
     public static final String KEY_PASSWORD = "password";
     public static final String KEY_EMAIL = "email";
@@ -26,7 +26,7 @@ public class SessionManager {
 
     }
 
-    public void createLoginSession(String password, String email, String userMobile, int userLoginId){
+    public void createLoginSession(String password, String email, String userMobile, int userRegistrationId){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
@@ -38,7 +38,7 @@ public class SessionManager {
 
         editor.putString(PhoneKey,userMobile);
 
-        editor.putInt(UserIdKey,userLoginId);
+        editor.putInt(UserIdKey,userRegistrationId);
 
         // commit changes
         editor.commit();
