@@ -39,4 +39,5 @@
     <string name="success_in_signin">Successfully SignIn</string>
     <string name="sunable_to_connect">Error in Network Connection</string>
     <string name="login">Login</string>
+    <string name="change_pass">Your Password has been Changed Successfully</string>
 </resources>

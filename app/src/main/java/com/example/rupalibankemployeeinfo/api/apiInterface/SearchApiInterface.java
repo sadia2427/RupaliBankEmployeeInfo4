@@ -10,9 +10,14 @@ import com.example.rupalibankemployeeinfo.api.model.ZoneEmployeeBranchList;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface SearchApiInterface {
@@ -36,10 +41,14 @@ public interface SearchApiInterface {
     Call<BranchWiseEmployeeDetails> getBranchEmployeeDetails(@Query("office_id") int officeId);
 
     //////getLoginData
+//    @POST("api/login/user_login")
+//    Call<SignIn> userSignIn(@Query("regNo") String reg, @Query("password") String pw);
+    @Multipart
     @POST("api/login/user_login")
-    Call<SignIn> userSignIn(@Query("regNo") String reg, @Query("password") String pw);
+    Call<ResponseBody> uploadEmailPassword( @Part("regNo") RequestBody regNo, @Part("password") RequestBody password);
 
     ////Change password
+    @Multipart
     @POST("api/login/password_change")
-    Call<ChangePassword> getMessageResponse(@Query("regNo") String regNo, @Query("old_password") String password, @Query("conf_password") String Confirmpass, @Query("password") String pass);
+    Call<ResponseBody> getMessageResponse(@Part("regNo") RequestBody regNo, @Part("old_password") RequestBody password, @Part("conf_password") RequestBody Confirmpass, @Part("password") RequestBody pass);
 }

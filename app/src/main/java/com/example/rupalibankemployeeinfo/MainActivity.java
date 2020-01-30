@@ -1,15 +1,20 @@
 package com.example.rupalibankemployeeinfo;
 
+
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.rupalibankemployeeinfo.api.model.SignInInfromation;
+import com.example.rupalibankemployeeinfo.ui.changepassword.ChangePasswordFragment;
 import com.example.rupalibankemployeeinfo.ui.signin.SessionManager;
 import com.example.rupalibankemployeeinfo.ui.signin.SignInActivity;
 import com.example.rupalibankemployeeinfo.ui.signin.StoreUserInformation;
 
 import android.view.MenuItem;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -29,12 +34,14 @@ public class MainActivity extends AppCompatActivity {
     private SignInInfromation mSignInInfromation;
 
     private AppBarConfiguration mAppBarConfiguration;
+    private String mRegID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 //        searchView=findViewById(R.id.search_item);
 //        FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +64,27 @@ public class MainActivity extends AppCompatActivity {
         session=new SessionManager(getApplicationContext());
         mStoreUserInformation=new StoreUserInformation(getApplicationContext());
         mSignInInfromation=new SignInInfromation(getApplicationContext());
+
+//        if (!session.isLoggedIn()){
+//
+//            Intent intent = new Intent(MainActivity.this,SignInActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
+
+        if(getIntent().getStringExtra("changePass")!=null){
+            Bundle mBundle=new Bundle();
+            mBundle.putString("regNo", String.valueOf(getIntent().getStringExtra("changePass")));
+            Fragment fragment = new ChangePasswordFragment();
+            fragment.setArguments(mBundle);
+
+            //getActivity().getFragmentManager().popBackStack();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.nav_host_fragment, fragment);
+            ft.addToBackStack(null);
+            ft.commit();
+        }
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -85,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
         int id=item.getItemId();
@@ -93,6 +122,8 @@ public class MainActivity extends AppCompatActivity {
             mStoreUserInformation.clearInformation(getApplicationContext());
             mSignInInfromation.clearSignin(getApplicationContext());
             startActivityForResult(new Intent(MainActivity.this, SignInActivity.class),100);
+            finish();
+
         }
         return super.onOptionsItemSelected(item);
     }
