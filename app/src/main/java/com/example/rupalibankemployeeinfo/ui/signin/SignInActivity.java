@@ -69,6 +69,9 @@ public class SignInActivity extends AppCompatActivity {
     private List<SignIn> mSearchModelList;
     private List<SearchModel> mSearchModel;
 
+    // button add for forgot pass
+    private Button forgotPassword;
+
     //String Value
     private String mMobileNo;
     private String mRegistrationNo;
@@ -138,22 +141,9 @@ public class SignInActivity extends AppCompatActivity {
                 userEmail.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
             }
+
+
         });
-//        aDsigninButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                if (!validate()) {
-//                    Toast.makeText(getBaseContext(), R.string.give_correct_information, Toast.LENGTH_LONG).show();
-//                } else {
-////                    showProgressDialog();
-//                    userSignIn();
-//                    userPassword.onEditorAction(EditorInfo.IME_ACTION_DONE);
-//                    userEmail.onEditorAction(EditorInfo.IME_ACTION_DONE);
-//                }
-//
-//            }
-//        });
 
 
     }
