@@ -5,32 +5,62 @@
     android:layout_height="match_parent"
     tools:context=".ui.Browse.ZoneWiseEmployeeBranchListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
     <ProgressBar
         android:id="@+id/progress_z"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
-        android:id="@+id/employee_list_rv"
-        android:background="@color/colorWhite"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:visibility="gone" />
+      <!--  <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
+            android:id="@+id/employee_list_rv"
+            android:background="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>-->
 
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvEmptyView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:text="No Data Found"-->
+<!--        android:textColor="@color/colorBlack"-->
+<!--        android:textSize="?android:textAppearanceLarge"-->
+<!--        android:visibility="gone" />-->
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    >
     <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
-        android:background="@color/colorWhite"
         android:id="@+id/branch_list_rv"
-        android:layout_marginTop="8dp"
-        android:layout_below="@+id/employee_list_rv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorWhite" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/employee_list_rv"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       />
+
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
 
 
 </RelativeLayout>

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.mikhaellopez:hfrecyclerview:1.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/005479fa277d1b4b38c871ee87d1b8a2/jetified-hfrecyclerview-1.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/005479fa277d1b4b38c871ee87d1b8a2/jetified-hfrecyclerview-1.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/88506285eb34f0304fc4ebb2f41077dc/jetified-hfrecyclerview-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/88506285eb34f0304fc4ebb2f41077dc/jetified-hfrecyclerview-1.0.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikhaellopez/hfrecyclerview/1.0.0/30b4b64e508bca712fde58eaea0b475c3f26ac17/hfrecyclerview-1.0.0-javadoc.jar!/" />

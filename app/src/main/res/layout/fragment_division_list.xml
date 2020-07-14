@@ -12,7 +12,12 @@
         android:id="@+id/division_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        />
+
+       <!-- android:layout_gravity="center"-->
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:visibility="gone"
         android:id="@+id/division_list_rv"
@@ -21,5 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
        />
+
+
 
 </FrameLayout>

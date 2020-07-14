@@ -21,7 +21,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:textColor="@color/colorWhite"
-      android:text="© 2020 all rightts reserved Rupali Bank Limited Developed By ICT Operation Division"
+      android:text="© 2020 all rights reserved Rupali Bank Limited Developed By ICT Operations Division"
       android:maxLines="3"
       android:minLines="3"
     />
@@ -38,7 +38,7 @@
         android:textSize="15sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         android:textColor="@color/colorRed"
         android:text="Rupali Bank Ltd."
         />
@@ -47,7 +47,6 @@
         android:paddingLeft="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="italic"
         android:textSize="12sp"
         android:textColor="@color/text_black"
         android:text="Head Office, ICT OPERATIONS DIVISION,"
@@ -57,7 +56,6 @@
         android:paddingLeft="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="italic"
         android:textSize="12sp"
         android:textColor="@color/text_black"
         android:text="9th floor, 34 Dilkusha C/A, Dhaka-1000 |"
@@ -78,10 +76,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:textStyle="italic"
         android:paddingLeft="16dp"
         android:textColor="@color/text_black"
-        android:text="SD Team, ICT Operations Division"
+        android:text="ICT Operations Division"
         />
   </LinearLayout>
 

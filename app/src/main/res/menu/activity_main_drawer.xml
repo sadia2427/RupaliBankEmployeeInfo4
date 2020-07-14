@@ -17,10 +17,7 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_browse" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/account_circle"
-            android:title="@string/menu_prl" />
+
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_info_24px"
@@ -28,7 +25,7 @@
         <item
             android:id="@+id/nav_changepassword"
             android:icon="@drawable/ic_key"
-            android:title="@string/password" />
+            android:title="@string/change_password" />
     </group>
 
     <item android:title="Communicate">
@@ -37,10 +34,7 @@
                 android:id="@+id/nav_notices"
                 android:icon="@drawable/ic_menu_share"
                 android:title="@string/menu_notices" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_key"
-                android:title="@string/menu_logout" />
+
         </menu>
     </item>
 

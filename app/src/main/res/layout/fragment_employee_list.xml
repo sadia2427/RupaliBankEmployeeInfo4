@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.Browse.EmployeeListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ProgressBar
         android:id="@+id/employee_list_p"
         android:layout_width="wrap_content"
@@ -14,7 +13,6 @@
         android:layout_gravity="center_horizontal" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/employee_recylerview"
-        android:visibility="gone"
         android:layout_marginTop="8dp"
         android:background="@color/colorWhite"
         android:layout_width="match_parent"

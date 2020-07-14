@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RupaliBankEmployeeInfo.iml" filepath="$PROJECT_DIR$/RupaliBankEmployeeInfo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RupaliBankEmployeeInfo.iml" filepath="$PROJECT_DIR$/RupaliBankEmployeeInfo.iml" group="RupaliBankEmployeeInfo" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="RupaliBankEmployeeInfo/app" />
     </modules>
   </component>
 </project>

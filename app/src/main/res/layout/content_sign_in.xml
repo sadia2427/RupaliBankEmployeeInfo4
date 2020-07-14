@@ -20,12 +20,12 @@
         <TextView
             android:id="@+id/text_tv"
             android:layout_width="410dp"
-            android:layout_height="95dp"
+            android:layout_height="50dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/login"
             android:gravity="center_vertical"
             android:paddingLeft="40dp"
             android:text="@string/login"
+            android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="30sp" />
 
@@ -42,6 +42,12 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/rupali_bank"/>
                 <LinearLayout
                     android:id="@+id/email_login_form"
                     android:layout_width="match_parent"
@@ -144,20 +150,18 @@
                         android:layout_marginTop="16dp"
                         android:text="Login"
                         android:textColor="#ffff"
-                        android:background="@color/colorTeel"
+                        android:background="@color/colorRed"
                         style="@style/Widget.AppCompat.Button.Colored" />
 
                     <TextView
-                        android:layout_width="400dp"
+                        android:id="@+id/forgotPassword"
+                        android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
-                        android:background="@color/colorRed"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:paddingLeft="8dp"
-                        android:text="Forget Password"
+                        android:text="Forget Password?"
                         android:linksClickable="true"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorWhite"
                         android:textStyle="bold|italic" />
 
                 </LinearLayout>

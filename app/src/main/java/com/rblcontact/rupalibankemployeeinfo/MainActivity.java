@@ -70,10 +70,13 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("rupaliCache",0);
 
-
+        ChangePasswordFragment changePasswordFragment= new  ChangePasswordFragment();
+          Bundle userInfo =new Bundle();
+          userInfo.putString("regNo1","13945");
+        changePasswordFragment.setArguments(userInfo);
         ////////////////////////////---PERMISSION GRANTED FOR USER PHONE CALL---//////////////////////////////
 
-        if((ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS)!= PackageManager.PERMISSION_GRANTED)||(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
+    /*    if((ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS)!= PackageManager.PERMISSION_GRANTED)||(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
                 ||(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_CALL_LOG)!= PackageManager.PERMISSION_GRANTED)||(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED)
                 ||(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED)){
 
@@ -84,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Log.w("SEND_SMS PERMISSION ", "SEND_SMS PERMISSION ALRADY GRANTED");
         }
-
+*/
         //Load RegID for image
         mRegID = sharedPreferences.getString(SessionManager.KEY_EMAIL, "");
         Log.w("regNo ", "regNo Not fouNd:------------------------- |"+mRegID+"|");

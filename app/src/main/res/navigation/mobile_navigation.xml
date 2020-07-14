@@ -7,52 +7,52 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.rupalibankemployeeinfo.ui.home.HomeFragment"
+        android:name="com.rblcontact.rupalibankemployeeinfo.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_search"
-        android:name="com.example.rupalibankemployeeinfo.ui.search.SearchFragment"
+        android:name="com.rblcontact.rupalibankemployeeinfo.ui.search.SearchFragment"
         android:label="@string/menu_search"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.rupalibankemployeeinfo.ui.Browse.DivisionListFragment"
+        android:name="com.rblcontact.rupalibankemployeeinfo.ui.Browse.DivisionListFragment"
         android:label="@string/menu_browse"
         tools:layout="@layout/fragment_division_list" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.rupalibankemployeeinfo.ui.slideshow.SlideshowFragment"
+        android:name="com.rblcontact.rupalibankemployeeinfo.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_prl"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_about"
-        android:name="com.example.rupalibankemployeeinfo.ui.signin.AboutFragment"
+        android:name="com.rblcontact.rupalibankemployeeinfo.ui.signin.AboutFragment"
         android:label="@string/menu_about"
         tools:layout="@layout/fragment_signin" />
     <fragment
         android:id="@+id/nav_changepassword"
-        android:name="com.example.rupalibankemployeeinfo.ui.changepassword.ChangePasswordFragment"
-        android:label="@string/menu_signin"
+        android:name="com.rblcontact.rupalibankemployeeinfo.ui.changepassword.ChangePasswordFragment"
+        android:label="@string/menu_pass"
         tools:layout="@layout/fragment_signin" />
 
     <fragment
         android:id="@+id/nav_notices"
-        android:name="com.example.rupalibankemployeeinfo.ui.share.NoticeFragment"
+        android:name="com.rblcontact.rupalibankemployeeinfo.ui.share.NoticeFragment"
         android:label="@string/menu_notices"
         tools:layout="@layout/fragment_share" />
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.example.rupalibankemployeeinfo.ui.send.SendFragment"
+        android:name="com.rblcontact.rupalibankemployeeinfo.ui.send.SendFragment"
         android:label="@string/menu_about"
         tools:layout="@layout/fragment_send" />
     <fragment
         android:id="@+id/nav_logout"
-        android:name="com.example.rupalibankemployeeinfo.ui.send.SendFragment"
+        android:name="com.rblcontact.rupalibankemployeeinfo.ui.send.SendFragment"
         android:label="@string/menu_logout"
         tools:layout="@layout/fragment_send" />
 </navigation>
