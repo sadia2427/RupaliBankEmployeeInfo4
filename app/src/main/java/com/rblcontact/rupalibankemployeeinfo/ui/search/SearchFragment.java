@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +38,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 
-public class SearchFragment extends Fragment  {
+public class SearchFragment extends Fragment   implements SearchView.OnCloseListener{
 
 //    private OnFragmentInteractionListener mListener;
     private List<SearchModel> mSearchModel;
@@ -139,47 +140,54 @@ public class SearchFragment extends Fragment  {
         getData.enqueue(new Callback<List<SearchModel>>() {
             @Override
             public void onResponse(Call<List<SearchModel>> call, Response<List<SearchModel>> response) {
+                if (response.isSuccessful()){
 
-                if (response.body().size()>0 && response.isSuccessful()){
-                    mProgressBar.setVisibility(View.GONE);
-                    mRecyclerView.setVisibility(View.VISIBLE);
                     mSearchModel.clear();
-                    mSearchModel.addAll(response.body());
-                    Log.w(TAG, "onResponse: "+response.body().get(0) );
-                    mSearchAdapter=new SearchAdapter(mSearchModel,getActivity());
-                    mRecyclerView.setAdapter(mSearchAdapter);
-                    Log.w(TAG, "onItemClick: onClick 12" );
-                    mSearchAdapter.setOnItemClickListener(new SearchAdapter.SearchInterFace() {
-                        @Override
-                        public void onItemClick(int position, View v) {
-                            Log.w(TAG, "onItemClick: onClick 123" );
-                            mBundle.putString("regNo", String.valueOf(mSearchModel.get(position).getEmpRegNo()));
-                            mBundle.putString("EmpName",mSearchModel.get(position).getEmpName());
-                            mBundle.putString("EmpNameBan",mSearchModel.get(position).getEmpNameBN());
-                            mBundle.putString("EmpMob",mSearchModel.get(position).getEmpMobile());
-                            mBundle.putString("empEmail",mSearchModel.get(position).getEmpEmail());
+                    if (response.body().size()>0){
+                        mProgressBar.setVisibility(View.GONE);
+                        mRecyclerView.setVisibility(View.VISIBLE);
+                        mSearchModel.addAll(response.body());
+                        Log.w(TAG, "onResponse: "+response.body().get(0) );
+                        mSearchAdapter=new SearchAdapter(mSearchModel,getActivity());
+                        mRecyclerView.setAdapter(mSearchAdapter);
+                        Log.w(TAG, "onItemClick: onClick 12" );
+                        mSearchAdapter.setOnItemClickListener(new SearchAdapter.SearchInterFace() {
+                            @Override
+                            public void onItemClick(int position, View v) {
+                                Log.w(TAG, "onItemClick: onClick 123" );
+                                mBundle.putString("regNo", String.valueOf(mSearchModel.get(position).getEmpRegNo()));
+                                mBundle.putString("EmpName",mSearchModel.get(position).getEmpName());
+                                mBundle.putString("EmpNameBan",mSearchModel.get(position).getEmpNameBN());
+                                mBundle.putString("EmpMob",mSearchModel.get(position).getEmpMobile());
+                                mBundle.putString("empEmail",mSearchModel.get(position).getEmpEmail());
 //                            mBundle.putString("categoryId",String.valueOf(mCategoryId));
 //                            mBundle.putString("subCategoryId",String.valueOf(mSubCategoryId));
 //                            mBundle.putString("subSubCategoryId",String.valueOf(mSubsubCatoryIdString));
-                            Fragment fragment = new EmployeeDetailsFragment();
-                            fragment.setArguments(mBundle);
+                                Fragment fragment = new EmployeeDetailsFragment();
+                                fragment.setArguments(mBundle);
 
-                            //getActivity().getFragmentManager().popBackStack();
-                            FragmentManager fm = getFragmentManager();
-                            FragmentTransaction ft = fm.beginTransaction();
-                            ft.replace(R.id.nav_host_fragment, fragment);
-                            ft.addToBackStack(null);
-                            ft.commit();
-                        }
-                    });
+                                //getActivity().getFragmentManager().popBackStack();
+                                FragmentManager fm = getFragmentManager();
+                                FragmentTransaction ft = fm.beginTransaction();
+                                ft.replace(R.id.nav_host_fragment, fragment);
+                                ft.addToBackStack(null);
+                                ft.commit();
+                            }
+                        });
+                    }
+                    else {
+                        mProgressBar.setVisibility(View.GONE);
+                        Toast.makeText(getActivity(),"Sorry no Data Found", Toast.LENGTH_LONG).show();
+                    }
                 }
+
             }
 
             @Override
             public void onFailure(Call<List<SearchModel>> call, Throwable t) {
                 Log.e(TAG, "onFailure: "+t.getMessage() );
             mProgressBar.setVisibility(View.GONE);
-            Toast.makeText(getActivity(),"Sorry no Data Found",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -269,6 +277,8 @@ public class SearchFragment extends Fragment  {
                 return false;
             }
         });
+
+
         searchView.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
@@ -281,6 +291,12 @@ public class SearchFragment extends Fragment  {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onClose() {
+        initAdapter("");
+        return false;
     }
     //    // TODO: Rename method, update argument and hook method into UI event
 //    public void onButtonPressed(Uri uri) {
